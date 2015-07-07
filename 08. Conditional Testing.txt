@@ -1,0 +1,42 @@
+Conditional Testing :
+---------------------
+
+>>> min, max = 8,9
+>>> print min
+8
+>>> Print max
+9
+>>> if min < max:
+... 	print min, "is less than", max
+...		<RETURN>
+8 is less than 9
+>>> if min > max:
+...	 print min, "is greater than", max
+...		<RETURN>
+>>> if min > max:
+...	 print min, "is equal to", max
+...		<RETURN>
+
+>>> filecount = 0
+>>> if filecount > 0
+...  print "New File"
+...		<RETURN>
+>>> filecount = 1
+>>> if filecount > 0
+...  print "New File"
+...		<RETURN>
+New File
+
+>>> if min < max:
+...  print min, "is less than", max
+... else
+...  print "no luck"
+...		<RETURN>
+8 is less than 9
+
+>>> if min > max:
+...  print min, "is less than", max
+... else
+...  print "no luck"
+...		<RETURN>
+no luck
