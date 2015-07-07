@@ -1,0 +1,74 @@
+Difference between LIST and TUPLE:
+----------------------------------
+>>> products = ["LinuxCBT", "Scripting Edition", "RedHat Edition"]
+>>> print products
+"LinuxCBT", "Scripting Edition", "RedHat Edition"]
+>>> type(products)
+<type 'list'>
+
+>>> products[2] = "Debian Edition"
+>>> print products
+"LinuxCBT", "Scripting Edition", "Debian Edition"]
+>>> products2 = ("LinuxCBT", "Scripting Edition", "RedHat Edition")
+>>> print products2
+("LinuxCBT", "Scripting Edition", "RedHat Edition")
+>>> type(products2)
+<type 'tuple'>
+>>> type(products)
+<type 'list'>
+>>> products2[2] = "Debian Edition"
+ File "<stdin>", line 1, in ?
+TypeError: object doesn't support item assignment
+
+NOTE : We can change values in LIST as per our choice after assignment but we cannot change the values in TUPLE.
+
+>>> print products2
+("LinuxCBT", "Scripting Edition", "RedHat Edition")
+>>> type(products2)
+<type 'tuple'>
+
+Dictionaries :
+--------------
+
+>>> LinuxCBT = {'Scripting': 395, 'Redhat': 595}
+>>> LinuxCBT
+{'Redhat': 595, 'Scripting': 395}
+>>> LinuxCBT['Scripting']
+395
+>>> LinuxCBT['RedHat']
+595
+
+>>> LinuxCBT['Debian'] = 495
+>>> LinuxCBT
+{'Redhat': 595, 'Scripting': 395, 'Debian': 495}
+
+>>> LinuxCBT.keys()
+['RedHat', 'Scripting', 'Debian']
+>>> LinuxCBT.values()
+[595, 395, 495]
+
+>>> del LinuxCBT['Redhat']
+>>> LinuxCBT.keys()
+['Scripting', 'Debian']
+>>> LinuxCBT
+{'Scripting': 395, 'Debian': 495}
+
+>>> for k,v in LinuxCBT.iteritems()
+...		print k,v
+Scripting 395
+Debian 495
+
+>>> suiteprice = [395,595]
+>>> print suiteprice
+[395,595]
+
+>>> LinuxCBT['Suite'] = suiteprice
+>>> LinuxCBT
+{'Suite': [395,595], 'Scripting': 395, 'Debian': 495}
+
+>>> for q,r in LinuxCBT.iteritems()
+...		print q,r
+
+Suite [395,595]
+Scripting 395
+Debian 395
