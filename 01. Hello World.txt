@@ -1,0 +1,21 @@
+Hello World
+-----------
+
+>>> print "Hello World"
+Hello World
+>>> print "Hello World\n"	-	Prints a new line after the text.
+Hello World
+
+>>> print 'Hello World'
+Single quotes also works as the same as Double quotes.
+
+
+>>> help()	-	Takes you to the help env. in python. You can type quit or Ctrl + D to come out of the help env.
+
+>>> name = "Arjun Shrikant"
+>>> print name
+Arjun Shrikant
+
+
+\n	-	New line
+\t	-	Tab space
