@@ -44,7 +44,7 @@ player2 = raw_input("Name of the second player: ")
 players = [player1,player2]
  
 for player in players:
-        print "Hi %s, try to locate the battleship.\n Please input 0-9 for row and column." % (player)
+        print "Hi %s, try to locate the battleship.\nPlease input 0-9 for row and column." % (player)
         for turn in range(3):
                 guess_row = int(raw_input("Guess Row: "))
                 guess_col = int(raw_input("Guess Col: "))
