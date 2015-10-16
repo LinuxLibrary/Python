@@ -1,17 +1,14 @@
 #!/usr/bin/python
 # Author : Arjun Shrinivas
+
 # Import Modules
 from random import randint
- 
- 
+
 # Create an empty board
 board1 = []
 board2 = []
- 
- 
- 
+
 # Modify the board to  10x10
- 
 for x in range(10):
     board1.append(["O"] * 10)
     board2.append(["O"] * 10)
@@ -31,8 +28,7 @@ def random_row(board1):
  
 def random_col(board1):
     return randint(0, len(board2) - 1)
- 
- 
+
 ship_row = random_row(board2)
 ship_col = random_col(board2)
  
