@@ -16,9 +16,9 @@ print message
 # END
 -------------------------------
 
->>> Product = "LinuxCBT Scripting Edition"
+>>> Product = "Python Programming"
 >>> print Product
-LinuxCBT Scripting Edition
+Python Programming
 
 >>> type(Product)
 <type 'str'> --> It will let you know the type of the variable.
