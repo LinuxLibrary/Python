@@ -1,5 +1,15 @@
 While Loops :
 -------------
-
 This loop is like an until statement.
 It will keep on looping till the given condition satisfies either it might be true or false.
+This will works as below
+
+>>> while condition-is-true / false perform action
+This will perform the action only if the condition-is-true / false.
+If the condition didn't match then this will be unhandy.
+And will become an indefinite loop.
+
+>>> count = 0
+>>> while count <= 10:
+...  print count
+...  count += 1
