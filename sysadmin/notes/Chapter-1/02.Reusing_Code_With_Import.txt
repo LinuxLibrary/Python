@@ -1,0 +1,29 @@
+# Reusing code with import statement
+====================================
+
+Save the functions along with importing the subprocess module to a python program.
+Now for testing purpose try to execute the below subprocess call in iPython console
+
+import subprocess
+subprocess.call(["pwd"])
+
+Now copy your program to the resulted directory. At this poing you can use your
+python program like a Python module. But all you need to do is you should not use the
+python suffix say ".py" and you can import the program like a module like below.
+
+import pysysinfo
+
+Now in this program we have noticed that all the code is being called at once while we
+import the module. But we only need the function should be executed at the command line.
+In the sense we need to get the output depending on our choice at the command line.
+For that copy the existing program into a pysysinfo_2.py and add the below few lines by
+replacing the last line "main()"
+
+if __name__ == "__main__":
+	main()
+
+Now after importing the module try to give your program name and a dot after it, press the
+TAB button and now you will be able to see all the functions of your program.
+
+In [2]: pysysinfo_2.
+pysysinfo_2.disk_func   pysysinfo_2.main        pysysinfo_2.py          pysysinfo_2.pyc         pysysinfo_2.subprocess  pysysinfo_2.uname_func
