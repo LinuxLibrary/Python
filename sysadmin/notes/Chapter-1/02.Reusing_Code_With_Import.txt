@@ -26,4 +26,10 @@ Now after importing the module try to give your program name and a dot after it,
 TAB button and now you will be able to see all the functions of your program.
 
 In [2]: pysysinfo_2.
-pysysinfo_2.disk_func   pysysinfo_2.main        pysysinfo_2.py          pysysinfo_2.pyc         pysysinfo_2.subprocess  pysysinfo_2.uname_func
+
+pysysinfo_2.disk_func   
+pysysinfo_2.main        
+pysysinfo_2.py          
+pysysinfo_2.pyc         
+pysysinfo_2.subprocess  
+pysysinfo_2.uname_func
