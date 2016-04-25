@@ -33,3 +33,7 @@ pysysinfo_2.py
 pysysinfo_2.pyc         
 pysysinfo_2.subprocess  
 pysysinfo_2.uname_func
+
+To accomplish this task and make the module to use whenever we want we need to place this 
+module in the modules directory. For example "/usr/lib/python2.7/" in my case. Know your
+Python version and locate it under /usr/lib and that will be your Python modules directory.
