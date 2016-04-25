@@ -2,7 +2,7 @@
 ===================
 
 Tab Completion:
-
+---------------
 It is important to have the tab completion feature. It is used to list 
 the sub modules with in a module. After importing the module at the prompt
 we can know what all the sub-modules are present in that module by simply
@@ -13,14 +13,11 @@ In [19]: import os
 
 In [20]: os.
 Display all 218 possibilities? (y or n)
-os.EX_CANTCREAT      os.O_NOCTTY          os.UserDict          os.devnull           os.getcwdu           os.makedirs          os.setegid           os.sysconf
-os.EX_CONFIG         os.O_NOFOLLOW        os.WCONTINUED        os.dup               os.getegid           os.minor             os.seteuid           os.sysconf_names
-os.EX_DATAERR        os.O_NONBLOCK        os.WCOREDUMP         os.dup2              os.getenv            os.mkdir             os.setgid            os.system
-.
-.
+os.EX_CANTCREAT      os.O_NOCTTY          os.UserDict          os.devnull           
+os.getcwdu           os.makedirs          os.setegid           os.sysconf
+os.EX_CONFIG         os.O_NOFOLLOW        os.WCONTINUED        os.dup               
 .
 
-This is a by default feature in IPython but in Python we need to configure it.
 To configure the TAB completion feature in Python we need to do the following.
 
 >>> import rlcompleter, readline
@@ -28,6 +25,14 @@ To configure the TAB completion feature in Python we need to do the following.
 >>> import os
 >>> os.
 Display all 249 possibilities? (y or n)
-os.EX_CANTCREAT             os.SEEK_END                 os.__reduce__(              os.execve(                  os.lstat(                   os.setuid(
-os.EX_CONFIG                os.SEEK_SET                 os.__reduce_ex__(           os.execvp(                  os.major(                   os.spawnl(
-os.EX_DATAERR               os.ST_APPEND                os.__repr__(                os.execvpe(                 os.makedev(                 os.spawnle(
+os.EX_CANTCREAT             os.SEEK_END                 os.__reduce__(              
+os.execve(                  os.lstat(                   os.setuid(
+os.EX_CONFIG                os.SEEK_SET                 os.__reduce_ex__(           
+.
+
+Magic-Edit:
+-----------
+
+Magic edit is a special feature in IPython. 
+Two of the magic functions can help you made through this all of this functionality 
+and sort what might be useful for you.
