@@ -35,4 +35,14 @@ Magic-Edit:
 
 Magic edit is a special feature in IPython. 
 Two of the magic functions can help you made through this all of this functionality 
-and sort what might be useful for you.
+and sort what might be useful for you. The first magic function is "lsmagic" which 
+lists all the magic functions. The first magic function is "lsmagic" which 
+lists all the magic functions. Another way to list the magic functions in a nice
+way is to type %.<TAB>. We have a total of 69 magic functions.
+
+We can get help of each of those individual functions too and can know about those
+functions. For example we have the %alias function. To know about it
+
+In [1]: %alias ?
+
+This will get the help page of the alias function.
