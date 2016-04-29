@@ -1,0 +1,36 @@
+# Python Built-ins and Modules
+==============================
+
+Strings (str) :
+---------------
+A string os simply a sequence of characters. The string type "str" is a powerful flexible means
+for manipulating string data.
+
+Creating strings:
+-----------------
+The most common way to create a string is to surround the text with quotation marks:
+In [1]: string1 = 'This is a string'
+In [2]: string2 = "This is another string"
+In [3]: string3 = '''This is still another string'''
+In [4]: string4 = """And one more string"""
+In [5]: type(string1), type(string2), type(string3), type(string4)
+Out[5]: (<type 'str'>, <type 'str'>, <type 'str'>, <type 'str'>)
+Single, double, and triple quotation marks accomplish the same thing: they all create
+an object of type str.
+
+This is a distinction that Python does not make. Python leaves the distinction to the
+programmer. For example, if you needed to embed double quotation marks within the
+string and did not want to have to escape them (with a backslash). Conversely, if you
+needed to embed single quotes within the string and did not want to have to escape
+them, you would use double quotes.
+
+In [1]: s = "This is a string with 'quotes' in it"
+In [2]: s
+Out[2]: "This is a string with 'quotes' in it"
+
+In [7]: s = '''this is a
+...: multiline string'''
+In [8]: s
+Out[8]: 'this is a\nmultiline string'
+
+
