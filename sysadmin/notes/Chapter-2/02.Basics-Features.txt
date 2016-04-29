@@ -46,3 +46,6 @@ functions. For example we have the %alias function. To know about it
 In [1]: %alias ?
 
 This will get the help page of the alias function.
+
+
+		---___ SKIPPING THIS FOR NOW ___---
