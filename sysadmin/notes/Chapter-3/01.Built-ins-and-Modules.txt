@@ -3,7 +3,7 @@
 
 Strings (str) :
 ---------------
-A string os simply a sequence of characters. The string type "str" is a powerful flexible means
+A string is simply a sequence of characters. The string type "str" is a powerful flexible means
 for manipulating string data.
 
 Creating strings:
@@ -32,5 +32,24 @@ In [7]: s = '''this is a
 ...: multiline string'''
 In [8]: s
 Out[8]: 'this is a\nmultiline string'
+
+Below is the table which shows the escape sequences in Python
+
+\newline 	Ignored
+\\ 		Backslash
+\' 		Single quote
+\” 		Double quote
+\a 		ASCII Bell
+\b 		ASCII backspace
+\f 		ASCII form feed
+\n 		ASCII line feed
+\N{name} 	Named character in Unicode database (Unicode strings only)
+\r 		ASCII carriage return
+\t 		ASCII horizontal tab
+\uxxxx 		Character with 16-bit hex value xxxx (Unicode only)
+\Uxxxxxxxx 	Character with 32-bit hex value xxxx (Unicode only)
+\v 		ASCII vertical tab
+\ooo 		Character with octal value oo
+\xhh 		Character with hex value hh
 
 
