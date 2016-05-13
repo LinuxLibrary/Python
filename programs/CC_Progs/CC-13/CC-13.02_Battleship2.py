@@ -12,7 +12,7 @@ board2 = []
 for x in range(10):
     board1.append(["O"] * 10)
     board2.append(["O"] * 10)
- 
+
 def plain_board(board1):
     for row in board1:
         print " ".join(row)

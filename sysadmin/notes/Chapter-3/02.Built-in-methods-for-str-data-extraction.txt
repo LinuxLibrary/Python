@@ -1,0 +1,73 @@
+# Built-in methods for str data extraction
+
+One of the method of str data extraction is "in" and "not in" text operators.
+Technically "in" and "not in" test operators call a method on your str object,
+__contains__(). We can use both "in" and "not in" to determine if a string is
+a part of another string.
+
+In [1]: import subprocess
+In [2]: res = subprocess.Popen(['uname', '-ior'], stdout=subprocess.PIPE)
+In [3]: uname = res.stdout.read().strip()
+In [4]: uname
+Out[4]: '4.2.0-c9 x86_64 GNU/Linux'
+In [5]: 'Linux' in uname
+Out[5]: True
+In [6]: 'Linux' not in uname                                                                                                                                                      
+Out[6]: False
+
+If string2 contains string1, string1 in string2 returns True, otherwise, it returns
+False. So, checking to see if "Linux" was in our uname string returned True, but checking
+to see if "Unix" was in our uname returned false.Sometimes you only need to know if a 
+string is a substring of another string. Other times, you need to know where in a string 
+the substring occurs. find() and index() let you do that.
+
+In [19]: uname.index('Linux')
+Out[19]: 20
+In [20]: uname.find('Linux')
+Out[20]: 20
+In [23]: uname.find('Debian')
+Out[23]: -1
+In [24]: uname.index('Debian')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-24-97ca2e4d7f71> in <module>()
+----> 1 uname.index('Debian')
+
+ValueError: substring not found
+
+If string1 is in string2, string2.find(string1) returns
+the index of the first character of string1, otherwise, it returns –1.
+
+String slice:
+-------------
+In [13]: smp_index = uname.index('SMP')
+In [14]: smp_index
+Out[14]: 9
+In [15]: uname[smp_index:]
+Out[15]: 'SMP Tue Feb 12 02:46:46 UTC 2008'
+In [16]: uname[:smp_index]
+Out[16]: 'Linux #1 '
+In [17]: uname
+Out[17]: 'Linux #1 SMP Tue Feb 12 02:46:46 UTC 2008'
+
+We were able to see every character from the index of finding "SMP" to the end of the
+string with the slice syntax string[index:]. We were also able to see every character
+from the beginning of the uname string to the index of finding "SMP" with the slice syntax
+string[:index]. The slight variation between these two is which side of the index the
+colon (:) finds itself on.
+
+Two other strings that are occasionally methods are startswith() and endswith(). As
+their names imply, they can help you determine whether a string “starts with” or “ends
+with” a particular substring.
+
+In [1]: some_string = "Raymond Luxury-Yacht"
+In [2]: some_string.startswith("Raymond")
+Out[2]: True
+In [3]: some_string.startswith("Throatwarbler")
+Out[3]: False
+In [4]: some_string.endswith("Luxury-Yacht")
+Out[4]: True
+In [5]: some_string.endswith("Mangrove")
+Out[5]: False
+
+
