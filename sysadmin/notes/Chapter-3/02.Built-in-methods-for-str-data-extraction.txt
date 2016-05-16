@@ -70,4 +70,84 @@ Out[4]: True
 In [5]: some_string.endswith("Mangrove")
 Out[5]: False
 
+Methods to work on White Spaces:
+--------------------------------
+We have some other methods to remove the white spaces(trailing, ending and both).
+lstrip() - Used to remove trailing white spaces.
+	Usage : some_string.lstrip()
+rstrip() - Used to remove ending white spaces.
+	Usage : some_string.rstrip()
+strip() - Used to remove both trailing and ending white spaces.
+	Usage : some_string.strip()
+
+In [11]: new_string = "  Test String  "
+In [12]: new_string
+Out[12]: '  Test String  '
+In [13]: new_string.lstrip()
+Out[13]: 'Test String  '
+In [14]: new_string.rstrip()
+Out[14]: '  Test String'
+In [15]: new_string.strip()
+Out[15]: 'Test String'
+
+These will not only remove the white spaces we can use these as we need. Means if we need 
+to remove any characters at trailing or ending then we can use these. For example if we 
+have '<' at begining and '>' characters at the begining and ending then we'll see how can 
+we remove these.
+
+In [16]: xml_tag = "<some_tag>"
+In [17]: xml_tag
+Out[17]: '<some_tag>'
+In [18]: xml_tag.lstrip("<")
+Out[18]: 'some_tag>'
+In [19]: xml_tag.rstrip(">")
+Out[19]: '<some_tag'
+In [20]: xml_tag.lstrip("<").rstrip(">")
+Out[20]: 'some_tag'
+In [21]: xml_tag.strip("<").strip(">")
+Out[21]: 'some_tag'
+In [22]: xml_tag.strip("<>")
+Out[22]: 'some_tag'
+
+You might have assumed that the strip()s stripped off an exact occurrence of the string
+you fed it, but the strips actually remove any sequential occurrence of the specified
+characters from the appropriate side of the string. In that last example, we told
+strip() to remove "<>". That doesn’t mean to exactly match "<>" and remove any
+occurrences of those two characters that are adjacent to one another in that order; it
+means remove any occurrences of "<" or ">" that are adjacent to one another on either
+end of the string.
+
+In [28]: gt_lt_str = "<><><>gt lt str<><><>"
+In [29]: gt_lt_str.strip("<>")
+Out[29]: 'gt lt str'
+In [30]: gt_lt_str.strip("><")
+Out[30]: 'gt lt str'
+
+In [35]: foo_str = "<fooooooo>blah<foo>"
+In [36]: foo_str.strip("<foo>")
+Out[36]: 'blah'
+In [37]: foo_str.strip("<fo>")
+Out[37]: 'blah'
+In [38]: foo_str.strip("><fo")
+Out[38]: 'blah'
+In [39]: foo_str.strip("><of")
+Out[39]: 'blah'
+
+The methods upper() and lower() are useful, particularly when you need to compare
+two strings without regard to whether the characters are upper- or lowercase.
+
+In [40]: mixed_string = "TEst StrInG"
+In [41]: mixed_string == "TEST STRING"                                                                                                                                       
+Out[41]: False
+In [42]: mixed_string == "test string"
+Out[42]: False
+In [43]: mixed_string.lower() == "test string"                                                                                                                                    
+Out[43]: True
+In [44]: mixed_string.upper() == "TEST STRING"                                                                                                                                    
+Out[44]: True
+In [45]: mixed_string.lower()
+Out[45]: 'test string'
+In [46]: mixed_string.upper()
+Out[46]: 'TEST STRING'
+
 

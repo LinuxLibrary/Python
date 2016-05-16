@@ -21,7 +21,7 @@ def failed_board(board2):
         print " ".join(row)
  
 print "Let's play Battleship!"
-plain_board
+plain_board(board1)
  
 def random_row(board1):
     return randint(0, len(board2) - 1)
@@ -32,8 +32,8 @@ def random_col(board1):
 ship_row = random_row(board2)
 ship_col = random_col(board2)
  
-#print ship_row
-#print ship_col
+print ship_row
+print ship_col
  
 player1 = raw_input("Name of the first player: ")
 player2 = raw_input("Name of the second player: ")
