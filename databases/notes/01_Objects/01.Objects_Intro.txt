@@ -34,4 +34,8 @@ for item in movies:
             print key, ':', item[key]
 print '------------'
 
-
+- Here we have created a list of keys which we want to iterate through and get the output.
+- After that in the first for loop we are trying to iterate through out list "movies" to
+   get the two dictionaries.
+- Now in the second for loop we are iterating through each key from the list "keys" and
+   getting its value from the dictionaries and printing as per our requirement.
