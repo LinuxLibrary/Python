@@ -1,0 +1,32 @@
+# CRUD
+* C - Create
+* R - Read / Retrieve / Select
+* U - Insert / Update
+* D - Delete
+
+- Creating a database in SQLite:
+	sqlite3 sql1.db
+
+- Create a table named Users in your DB:
+	sqlite> CREATE TABLE Users (
+	   ...> name VARCHAR(128),
+	   ...> email VARCHAR(128)
+	   ...> );
+
+- To describe the table:
+	PRAGMA table_info(Users);
+
+- Insert some values into it:
+	INSERT INTO Users (name,email) VALUES ('Arjun','vmsnivas@gmail.com');
+	INSERT INTO Users (name,email) VALUES ('Mallik','mallikbheesetti@gmail.com');
+	INSERT INTO Users (name,email) VALUES ('Nivas','srinivas@gmail.com');
+
+- Delete a row
+	DELETE FROM Users WHERE email='srinivas@gmail.com';
+
+- Update a row
+	UPDATE Users SET name='ArjunShrinivas' WHERE email='vmsnivas@gmail.com';
+
+- Retrieving records using SELECT
+	SELECT * FROM Users WHERE email='vmsnivas@gmail.com';
+	SELECT * FROM Users WHERE email like '%@gmail.com';
