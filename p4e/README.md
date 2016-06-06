@@ -9,6 +9,7 @@
 - Using Databases with Python
 	* Objects
 	* Basic SQL ( Structured Query Language )
+	* Data Model and Relational SQL
 
 - Capstone: Retrieving, Processing, and Visualizing Data with Python
 
