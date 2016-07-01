@@ -1,5 +1,5 @@
-# Built-in methods for str data extraction
-
+# BUILT-IN METHODS FOR STR DATA EXTRACTION
+------------------------------------------
 One of the method of str data extraction is "in" and "not in" text operators.
 Technically "in" and "not in" test operators call a method on your str object,
 __contains__(). We can use both "in" and "not in" to determine if a string is
@@ -14,6 +14,9 @@ In [5]: 'Linux' in uname
 Out[5]: True
 In [6]: 'Linux' not in uname                                                                                                                                                      
 Out[6]: False
+
+# USING FIND() AND INDEX():
+---------------------------
 
 If string2 contains string1, string1 in string2 returns True, otherwise, it returns
 False. So, checking to see if "Linux" was in our uname string returned True, but checking
@@ -56,6 +59,9 @@ from the beginning of the uname string to the index of finding "SMP" with the sl
 string[:index]. The slight variation between these two is which side of the index the
 colon (:) finds itself on.
 
+# USING STARTSWITH() AND ENDSWITH():
+------------------------------------
+
 Two other strings that are occasionally methods are startswith() and endswith(). As
 their names imply, they can help you determine whether a string “starts with” or “ends
 with” a particular substring.
@@ -70,8 +76,9 @@ Out[4]: True
 In [5]: some_string.endswith("Mangrove")
 Out[5]: False
 
-Methods to work on White Spaces:
---------------------------------
+# METHODS TO WORK ON WHITE SPACES USING LSTRIP(), RSTRIP() AND STRIP():
+-----------------------------------------------------------------------
+
 We have some other methods to remove the white spaces(trailing, ending and both).
 lstrip() - Used to remove trailing white spaces.
 	Usage : some_string.lstrip()
@@ -133,6 +140,9 @@ Out[38]: 'blah'
 In [39]: foo_str.strip("><of")
 Out[39]: 'blah'
 
+# USING UPPER() and LOWER() METHODS:
+------------------------------------
+
 The methods upper() and lower() are useful, particularly when you need to compare
 two strings without regard to whether the characters are upper- or lowercase.
 
@@ -149,5 +159,68 @@ In [45]: mixed_string.lower()
 Out[45]: 'test string'
 In [46]: mixed_string.upper()
 Out[46]: 'TEST STRING'
+
+# USING SPLIT() METHOD:
+-----------------------
+
+But what if you only want to split the string on the first “n” occurrences of the specified
+delimiters? Split() takes a second parameter, called max_split. When an integer value for max_split 
+is passed in, split() will only split the string the number of times the max_split argument dictates:
+
+>>> two_field_string = "8675309,This is a freeform, plain text, string"
+>>> two_field_string.split(',',1)
+['8675309', 'This is a freeform, plain text, string']
+
+We split on a comma and told split() to only split on the first occurrence of the delimiter.
+
+If you need to split on whitespace in order to retrieve, for example, words from a piece
+of prose-like text, split() is an easy tool for accomplishing that:
+>>> prosaic_string = "Insert your clever little piece of text here."
+>>> prosaic_string.split()
+['Insert', 'your', 'clever', 'little', 'piece', 'of', 'text', 'here.']
+
+This method is more useful in programming. While programming we can assign the split method output to a 
+string variable and there after we can easily loop through that.
+>>> line = prosaic_string.split()
+>>> for word in line:
+...     print word
+...
+Insert
+your
+clever
+little
+piece
+of
+text
+here.
+
+Most of the time, you will probably see the results you expected to see. However, if you
+have a multiline piece of text, you might see results that you were not expecting. Often,
+when you have a multiline piece of text, you intend to deal with one line at a time. But
+you might find that the program split on every word in the string:
+>>> multiline_string = """This
+... is
+... a multiline
+... piece of
+... text"""
+>>> multiline_string
+'This\nis\na multiline\npiece of\ntext'
+>>> multiline_string.split()
+['This', 'is', 'a', 'multiline', 'piece', 'of', 'text']
+>>> multiline_string.splitlines()
+['This', 'is', 'a multiline', 'piece of', 'text']
+
+Sometimes you don’t want to pull a string apart or extract information from it; sometimes
+you need to piece a string together from data you already have. In these cases,
+join() can help:
+>>> some_list = ['one', 'two', 'three', 'four']
+>>> ','.join(some_list)
+'one,two,three,four'
+>>> ', '.join(some_list)
+'one, two, three, four'
+>>> '\t'.join(some_list)
+'one\ttwo\tthree\tfour'
+>>> ''.join(some_list)
+'onetwothreefour'
 
 
