@@ -1,4 +1,65 @@
 Networked Programs - Python programs to talk to the Internet:
 -------------------------------------------------------------
 
+Sockets in Python:
+------------------
+To work with the sockets in python we have a library or module which is socket.
+While working on any library we need to import it at first. Let us have look at
+the below code.
 
+import socket
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect( ('www.py4inf.com', 80) )
+
+In the first line we are making the module available to the program.
+In the second line we are preparing a socket which we use to connect to the server
+from our computer. In this we are using like socket.socket(). This means that 
+library.method where the first word is the library and the second one is the method
+which says make a socket. And the two values with in the braces are the paramaters.
+One of those is an Internet socket and the other one is a stream socket through which
+we track the data.
+Now the 3rd line is to connect to the host which have the address mentioned and go to
+port 80 using the above socket which was prepared in the second line.
+
+
+Lets write a browser:
+---------------------
+Below is the sample program which opens a socket, connect to the server with the socket,
+opens the document and print the data it contains.
+
+import socket
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect( ('www.py4inf.com', 80) )
+mysock.send('GET http://www.py4inf.com/code/romeo.txt HTTP/1.0\n\n')
+
+while True:
+	data = mysock.recv(512)
+	if ( len(data) < 1 ):
+		break
+	print data
+mysock.close()
+
+In this program we need to know about the below line.
+data = mysock.recv(512)
+Here we are asking the browser to recieve 512 characters at a time.
+After that if we recieve nothing then this loop will become an unended loop. In case we don't 
+recieve any data then we need to break it right there. That is why we are checking the lenght 
+of the data and breaking the loop. This operation is because as we are receiving 512 chars at
+a time we recieves nothing if we recieve the entire document. In that case the length of the 
+data would be 0. So we need to break the loop over there.
+
+
+
+We have another library which helps us to come out of this complexity of socket library. That
+is "urllib" library. Below is the sample program which explain the simplicity of this library.
+
+import urllib
+fh = urllib.urlopen('http://www.py4inf.com/code/romeo.txt')
+
+for line in fh:
+	print line.strip()
+
+Here we are just opening the url using this library and assigning its output to a handle just 
+like a file handle afterwards we know how to use a file handle. Another good thing using this 
+library is that we don't get any meta data and it will just displays the content of the file 
+just like on the disk.
