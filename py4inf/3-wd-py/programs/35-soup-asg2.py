@@ -3,9 +3,12 @@
 import re, urllib
 from BeautifulSoup import *
 
-url = urllib.urlopen('http://python-data.dr-chuck.net/known_by_Fikret.html').read()
-soup = BeautifulSoup(url)
-tags = soup('a')
+url = raw_input("Enter - ")
 
-for tag in tags:
-	print tag
+for i in range(8):
+	print url
+	html = urllib.urlopen(url).read()
+	soup = BeautifulSoup(html)
+	tags = soup('a')
+	tag = tags[17]
+	url = tag.get('href', None)
