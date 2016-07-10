@@ -1,0 +1,26 @@
+Programs that surf the Web:
+---------------------------
+
+Till now we have been through the sockets and urllib.
+But the most important thing here we need to discuss is if we are going through a HTML page
+which contains links to other pages or sites then it would be quite difficult for us to 
+handle such situation as parsing through the document for "href" links and there after we need
+to get the links from there. For this purpose we have an excellent library "BeautifulSoup"
+to accomplish our task. This library will searches for the tags in the html page.
+
+So in our case the reference links will come under the anchor tags <a>...</a>
+So we need to search the anchor tags and we can get the links using the BeautifulSoup module.
+Below is a sample program for the use of this library.
+
+
+import urllib
+from BeautifulSoup import *
+
+url = raw_input('Enter - ')
+html = urllib.urlopen(url).read()
+soup = BeautifulSoup(html)
+tags = soup('a')
+
+for tag in tags:
+	print tag.get('href', None)
+
