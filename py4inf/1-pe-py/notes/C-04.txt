@@ -1,4 +1,5 @@
 # Functions:
 ------------
 
-
+Programmers tend to write a lot of code, sometimes writing intricately nested conditionals and plugging in variables into complex formulas just to calculate one value or derive one output. However, repeating those several lines of code over and over again for every time the computation is required can make your source code quite verbose as well as tedious to maintain.
+In many programming languages there is a very powerful notion of "modular code" that can help solve this dilemma. Various segments of related code are broken apart and collapsed into smaller sets that can then be used to contribute to the larger, overarching scheme of the program itself. These reusable, modular pieces have different names in different languages (modules, routines, sub-routines, methods, etc), but in Python and many other languages besides, these are referred to as functions.
