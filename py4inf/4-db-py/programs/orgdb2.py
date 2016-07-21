@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sqlite3
+import sqlite3, re
 
 conn = sqlite3.connect('orgdb.sqlite')
 cur = conn.cursor()
@@ -16,10 +16,8 @@ fh = open(fname)
 for line in fh:
 	if not line.startswith('From: ') : continue
 	pieces = line.split()
-	email = pieces[1]
-	orgint = email.find('@') + 1
-	org = email[orgint:len(email)]
-	print email
+	orglist = (re.findall('@([^ ]*)', pieces[1]))
+	org = orglist[0]
 	cur.execute('SELECT count FROM Counts WHERE org = ? ', (org, ))
 	row = cur.fetchone()
 	if row is None:
