@@ -1,0 +1,27 @@
+# Strings
+---------
+
+We have more operators to work on the string data. Some of those include the below operators.
+
+- find()
+- index()
+- upper()
+- lower()
+- replace()
+- strip()
+- lstrip()
+- rstrip()
+- startswith()
+- endswith()
+- split()
+- splitlines()
+- join()
+
+To know more about how to use these operators on string data please refer to the below link.
+https://github.com/vmsnivas/Python/blob/master/py4sa/notes/Chapter-3/02.Built-in-methods-for-str-data-extraction.txt
+
+We also can do some more additional search on the string data using the regular exressions.
+For that we need to import the "re" module/library.
+
+To know more about Regular expressions, "re" module and its usage please refer to the below link.
+https://github.com/vmsnivas/Python/blob/master/py4inf/3-wd-py/notes/11.Regular-Expressions.txt
