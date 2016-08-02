@@ -1,14 +1,14 @@
-# WORKING WITH FILES
---------------------
+# WORKING WITH FILES:
+---------------------
 
 Before Python can access file information it must "open" the file. 
-open() is the built-in function which tells Python to open the file.
+open() is the built-in function which tells Python to open the file. 
 open() takes two parameters 'filename' and 'mode'. If you leave the 
-second parameter off 'open(filename)' Python will simply open the f
--ile in read mode ('r'). Opening a file does not cause Python to re
--ad all the data in the file, but it makes the information in the f
--ile available to Python to use - it creates a connection between P
--ython and the file on the hard drive, referred to as a "Handle".
+second parameter off 'open(filename)' Python will simply open the fi
+-le in read mode ('r'). Opening a file does not cause Python to read
+all the data in the file, but it makes the information in the file -
+available to Python to use - it creates a connection between Python 
+and the file on the hard drive, referred to as a "Handle".
 
 If the file cannot be found you will receive a traceback error.
 
@@ -36,8 +36,7 @@ Opening:
 	inp = raw_input("Enter file name")# asks for a file name
 	fhand= open(inp) # handling the file
 
-	A more elegant idiom includes a guardian
-
+A more elegant idiom includes a guardian:
 	inp = raw_input("Enter file name")# asks for a file name
 	try:
 	    fhand= open(inp) # handling the file
@@ -45,29 +44,16 @@ Opening:
 	    print "Invalid filename"
 	    exit()
 
-Closing the file:
-Though not mentioned in the lecture, it's really useful to close the file
-handle you opened earlier with open once we're done reading the file cont
--ents. This mightn't make a big difference with small files we're reading
-throughout the course, but it'll help python(and the operating system und
--erneath) to optimize its resource usage by telling python and the OS tha
--t they can release resources allocated for the file. Opening files typic
--ally involves allocating and managing buffers under the hood, and closin
--g a file allows python to flush these buffer and give back their resourc
--es so that they can be used by other programs.
-
-To close a file, simply call close on the file handle obtained from open.
-
-fhand.close()
-
-A complete scenario for dealing with a file would thus look like this:
+Working the data:
 	fhand = open("words.txt")
-	# Do whatever you like with the file contents here, like reading
-	# them through a loop.
-	fhand.close()  # Close the file.
+	#before the loop you may need to set counters
+	for line in fhand:
+	#after the loop you will give instructions on what needs to be done to each line
 
+Closing the file:
+	fhand.close()
 
-==========================================================================
+----------------------------------------------------------------------------------------
 
 fname = raw_input("Enter a file name: ")
     if fname[0:2] == "~/": #Check to see if it starts with a ~ and a slash
@@ -76,14 +62,16 @@ fname = raw_input("Enter a file name: ")
         #like "~.py" (I checked: it is possible.)
         #notice below replace is valid on Mac OSX only (and not a good approach overall, cause not portable at all)
         fname = fname.replace('~',"/Users/"+raw_input("Enter your short user name: "),1)
-workingfname = fname.replace("\\",'') #This for proper escaping of a valid folder named '~' as '\~', you can also use './~' as Python automatically escapes for you.
+workingfname = fname.replace("\\",'') 
+#This for proper escaping of a valid folder named '~' as '\~', you can also use './~' as Python automatically escapes for you.
 #go back to normal program now
 handle = open(workingfname,'r') # . . .
 for line in handle:
     print line
 print "\n"+("That was "+fname+".").center(40)
 
-==========================================================================
+
+----------------------------------------------------------------------------------------
 
 fhand = raw_input('Enter the file name: ')
 while True:
@@ -94,12 +82,11 @@ while True:
             if not '@uct.ac.za' in line:
                 continue
             print line
-            
     except:
         print 'Not Found'
         fhand = raw_input('Enter the file name: ')
         continue
-        
+
     quit()
 
-==========================================================================
+----------------------------------------------------------------------------------------
