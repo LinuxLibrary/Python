@@ -1,0 +1,2 @@
+You can find some cool books for python at
+http://books.amk.ca/tag/python/
