@@ -223,4 +223,14 @@ join() can help:
 >>> ''.join(some_list)
 'onetwothreefour'
 
+The last method for creating or modifying strings of text is the replace() method.
+Replace() takes two arguments: the string that is to be replaced and the string to replace
+it with, respectively. Here is a simple replace() example:
+In [1]: replacable_string = "trancendental hibernational nation"
+In [2]: replacable_string.replace("nation", "natty")
+Out[2]: 'trancendental hibernattyal natty'
+Notice that replace() doesn’t care if the string to replace is in the middle of a word or
+if it is a full word. So, in cases in which you need to replace only a specific sequence of
+characters with another specific sequence of characters, replace() is the tool to use.
+
 
