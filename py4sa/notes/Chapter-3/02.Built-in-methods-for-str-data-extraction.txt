@@ -234,3 +234,24 @@ if it is a full word. So, in cases in which you need to replace only a specific 
 characters with another specific sequence of characters, replace() is the tool to use.
 
 
+UNICODED STRINGS:
+-----------------
+
+When you see any characters on a computer screen, the computer is dealing with those charac
+-ters internally as numbers. Until Unicode, there were many different sets of number-to-cha
+-racter mappings, depending on the language and platform. Unicode is a standard that provid
+-es a single number-to-character mapping regardless of the language, platform, or even the
+program that is dealing with the text.
+
+Creating a Unicode string is as simple as creating a regular string:
+In [1]: unicode_string = u'this is a unicode string'
+In [2]: unicode_string
+Out[2]: u'this is a unicode string'
+In [3]: print unicode_string
+this is a unicode string
+
+Or, you can use the built-in unicode() function:
+In [4]: unicode('this is a unicode string')
+Out[4]: u'this is a unicode string'
+
+
