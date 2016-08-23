@@ -2,8 +2,8 @@
 
 import requests, json
 url = 'https://spscommerce.atlassian.net/rest/api/2/search?jql=project=CHGMGMT&fields=customfield_16002&maxResults=10'
-username = 'displaymonitor'
-password = 'CDZha6u8'
+username = 'XXXXXXXXX'
+password = 'xxxxxxxxx'
 
 data = requests.get(url, auth=(username, password)).content
 
