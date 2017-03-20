@@ -17,6 +17,7 @@
 import os
 import commands
 import time
+import re
 from datetime import datetime
 
 ###############
@@ -41,6 +42,7 @@ FTP_CONTROL = "ftp20"
 CURDATE = datetime.now()
 RETVAL = None
 
+#print "%s/%s" % (DIR, C_TYPE)
 ############
 ## GETOPS ##
 ############
@@ -124,5 +126,13 @@ TEST = True
 while TEST:
 	DESC = raw_input("\nEnter a description: ")
 	print DESC
-	TEST = False
+	SEARCH = re.search(r"([a-zA-Z_0-9]+)",DESC)
+	if SEARCH:
+		TEST = False
+	else:
+		print "Invalid description!\n"
+
+#print "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
+H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
+print H_DIR
 	
