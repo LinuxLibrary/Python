@@ -42,7 +42,6 @@ FTP_CONTROL = "ftp20"
 CURDATE = datetime.now()
 RETVAL = None
 
-#print "%s/%s" % (DIR, C_TYPE)
 ############
 ## GETOPS ##
 ############
@@ -85,11 +84,11 @@ while TEST:
 		if (RETVAL == 256): os._exit(RETVAL)
 		PATH_NAME = raw_input("\nEnter path: ")
 		time.sleep(25)
-#		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/in")
-#		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/out")
-#		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testin")
-#		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testout")
-#		exit()
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/in")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/out")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testin")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testout")
+		exit()
 	else:
 		print "Invalid Option!\n"
 
@@ -132,7 +131,5 @@ while TEST:
 	else:
 		print "Invalid description!\n"
 
-#print "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
 H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
-print H_DIR
-	
+print H_DIR	
