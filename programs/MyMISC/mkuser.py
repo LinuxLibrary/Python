@@ -18,6 +18,8 @@ import os
 import commands
 import time
 import re
+import string
+import random
 from datetime import datetime
 
 ###############
@@ -41,6 +43,19 @@ GID = 500
 FTP_CONTROL = "ftp20"
 CURDATE = datetime.now()
 RETVAL = None
+
+
+###############
+## FUNCTIONS ##
+###############
+
+def password():
+	STRINGTOT = string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation
+	STRINGS = [random.choice(STRINGTOT) for CHAR in range(11)]
+	PASS = ''.join(STRINGS)
+	return PASS
+
+
 
 ############
 ## GETOPS ##
@@ -132,4 +147,26 @@ while TEST:
 		print "Invalid description!\n"
 
 H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
-print H_DIR	
+PASSWORD = password()
+
+DIRCHECK = commands.getstatusoutput("test -d $H_DIR")[0]
+if (DIRCHECK == 0):
+	print "Directory %s already exists!\n" % (H_DIR)
+else:
+	if (C_TYPE == "ftp"):
+		try:
+			os.system("mkdir -p $H_DIR/in >/dev/null 2>/dev/null")
+		except:
+			print "Unable to create %s/in" % (H_DIR)
+		try:
+			os.system("mkdir -p $H_DIR/out >/dev/null 2>/dev/null")
+		except:
+			print "Unable to create %s/out" % (H_DIR)
+		try:
+			os.system("mkdir -p $H_DIR/testin >/dev/null 2>/dev/null")
+		except:
+			print "Unable to create %s/testin" %(H_DIR)
+		try:
+			os.system("mkdir -p $H_DIR/testout >/dev/null 2>/dev/null")
+		except:
+			print "Unable to create %s/testout" % (H_DIR)
