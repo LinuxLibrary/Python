@@ -155,18 +155,28 @@ if (DIRCHECK == 0):
 else:
 	if (C_TYPE == "ftp"):
 		try:
-			os.system("mkdir -p $H_DIR/in >/dev/null 2>/dev/null")
+			os.makedirs(os.path.join(H_DIR, 'in'))
 		except:
 			print "Unable to create %s/in" % (H_DIR)
 		try:
-			os.system("mkdir -p $H_DIR/out >/dev/null 2>/dev/null")
+			os.makedirs(os.path.join(H_DIR, 'out'))
 		except:
 			print "Unable to create %s/out" % (H_DIR)
 		try:
-			os.system("mkdir -p $H_DIR/testin >/dev/null 2>/dev/null")
+			os.makedirs(os.path.join(H_DIR, 'testin'))
 		except:
 			print "Unable to create %s/testin" %(H_DIR)
 		try:
-			os.system("mkdir -p $H_DIR/testout >/dev/null 2>/dev/null")
+			os.makedirs(os.path.join(H_DIR, 'testout'))
 		except:
 			print "Unable to create %s/testout" % (H_DIR)
+		if (U_CODE == "images"):
+			try:
+				os.makedirs(os.path.join(H_DIR, 'images'))
+			except:
+				print "Unable to create %s/images" 
+		elif (C_TYPE == "export"):
+			try:
+				os.makedirs(H_DIR)
+			except:
+				print "Unable to create %s" % (H_DIR)
