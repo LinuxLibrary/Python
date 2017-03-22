@@ -121,8 +121,8 @@ while TEST:
 			elif (RETVAL == 256):
 				TEST = False
 			else:
-				print "ERROR: ncftpd_passwd returned RETVAL!\n This script cannot continue!\n"
-				os._exit(RETVAL)
+				print "ERROR: ncftpd_passwd returned %d!\n This script cannot continue!\n" % (RETVAL)
+				os._exit($RETVAL)
 		else:
 			try:
 				PWFILE = open("/etc/passwd")
@@ -180,3 +180,27 @@ else:
 				os.makedirs(H_DIR)
 			except:
 				print "Unable to create %s" % (H_DIR)
+
+UIDS = list()
+COUNTS = dict()
+
+if (C_TYPE == "ftp" or C_TYPE == "export"):
+	PASSWD = commands.getstatusoutput("sudo /u01/ncftpd/sbin/ncftpd_passwd -f /u01/ncftpd/etc/passwd.db -x")[1]
+	for LINE in PASSWD:
+		                COLS = LINE.split(':')
+                UIDS.append(COLS[2])
+
+UIDS = [int(NUM) for NUM in UIDS]
+UIDS.sort()
+
+for UID in UIDS:
+        if UID not in COUNTS:
+                COUNTS[UID] = 1
+        else:
+                COUNTS[UID] = COUNTS[UID] + 1
+
+for UID in range(FTP_RANGE_LOW,FTP_RANGE_HIGH+1):
+	if UID not in UIDS: break
+print "New User ID : %d" % (UID)
+
+
