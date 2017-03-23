@@ -109,6 +109,7 @@ while TEST:
 	else:
 		print "Invalid Option!\n"
 
+# Get Username
 TEST = True
 while TEST:
 	USER_NAME = raw_input("\nEnter user name. Note, all usernames are converted to lowercase: ").lower()
@@ -141,6 +142,7 @@ while TEST:
 				else:
 					TEST = False
 
+# Get Description (or) Company name
 TEST = True
 while TEST:
 	DESC = raw_input("\nEnter a description: ")
@@ -151,9 +153,11 @@ while TEST:
 	else:
 		print "Invalid description!\n"
 
+# FTP User homedir & Password
 H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
 PASSWORD = password()
 
+# Create subdirectories for user
 DIRCHECK = os.path.isdir(H_DIR)
 if (DIRCHECK == True):
 	print "Directory %s already exists!\n" % (H_DIR)
@@ -186,6 +190,7 @@ else:
 			except:
 				print "Unable to create %s" % (H_DIR)
 
+# Create UID and change Directory permissions
 UIDS = list()
 COUNTS = dict()
 
@@ -227,6 +232,7 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
 		subprocess.check_output(["sudo","/u01/ncftpd/sbin/ncftpd_passwd","-f",FTP_PASSWD,"-c","-a",FTP_ENTRY])
 	except:
 		print "Unable to create user : %s" % (USER_NAME)
+	# Print Username, Password and Description
 	print "-----------------------------------------"
 	print "Username : %s" % (USER_NAME)
 	print "Password : %s" % (PASSWORD)
