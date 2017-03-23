@@ -50,8 +50,9 @@ RETVAL = None
 ###############
 
 def password():
-	STRINGTOT = string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation
-	STRINGS = [random.choice(STRINGTOT) for CHAR in range(11)]
+	MYPUNCTUATION = '!?.%_!?*#'
+	STRINGTOT = string.ascii_uppercase + string.ascii_lowercase + string.digits + MYPUNCTUATION
+	STRINGS = [random.choice(STRINGTOT) for CHAR in range(13)]
 	PASS = ''.join(STRINGS)
 	return PASS
 
@@ -115,14 +116,17 @@ while TEST:
 		print "Usernames must begin with [a-z] and have max of %d chars.\n" % (MAXLEN)
 	else:
 		if (C_TYPE == "ftp" or C_TYPE == "export"):
-			RETVAL = commands.getstatusoutput("sudo /u01/ncftpd/sbin/ncftpd_passwd -f FTP_PASSWD -q USER_NAME >/dev/null 2>/dev/null")[0]
-			if (RETVAL == 0):
+			try:
+				USER_CHECK = subprocess.check_output(["sudo","/u01/ncftpd/sbin/ncftpd_passwd","-f",FTP_PASSWD,"-q",USER_NAME]).strip()
+			except:
+				RETVAL = 256
+			if USER_CHECK:
 				print "User already exists!\n"
 			elif (RETVAL == 256):
 				TEST = False
 			else:
 				print "ERROR: ncftpd_passwd returned %d!\n This script cannot continue!\n" % (RETVAL)
-				os._exit($RETVAL)
+				os._exit()
 		else:
 			try:
 				PWFILE = open("/etc/passwd")
@@ -149,8 +153,8 @@ while TEST:
 H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
 PASSWORD = password()
 
-DIRCHECK = commands.getstatusoutput("test -d $H_DIR")[0]
-if (DIRCHECK == 0):
+DIRCHECK = os.path.isdir(H_DIR)
+if (DIRCHECK == True):
 	print "Directory %s already exists!\n" % (H_DIR)
 else:
 	if (C_TYPE == "ftp"):
@@ -189,18 +193,27 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
 	for LINE in PASSWD:
 		                COLS = LINE.split(':')
                 UIDS.append(COLS[2])
-
-UIDS = [int(NUM) for NUM in UIDS]
-UIDS.sort()
-
-for UID in UIDS:
-        if UID not in COUNTS:
-                COUNTS[UID] = 1
-        else:
-                COUNTS[UID] = COUNTS[UID] + 1
-
-for UID in range(FTP_RANGE_LOW,FTP_RANGE_HIGH+1):
-	if UID not in UIDS: break
-print "New User ID : %d" % (UID)
-
-
+	UIDS = [int(NUM) for NUM in UIDS]
+	UIDS.sort()
+	for UID in UIDS:
+        	if UID not in COUNTS:
+                	COUNTS[UID] = 1
+        	else:
+                	COUNTS[UID] = COUNTS[UID] + 1
+	for UID in range(FTP_RANGE_LOW,FTP_RANGE_HIGH+1):
+		if UID not in UIDS: break
+	if (UID == FTP_RANGE_HIGH):
+		print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
+		break
+	try:
+		subprocess.check_output(["chmod","-R","0700",H_DIR])
+	except:
+		print "Unable to change permissions on %s" % (H_DIR)
+	try:
+		subprocess.check_output(["chown","-R",UID,H_DIR])
+	except:
+		print "Unable to change owner on %s" % (H_DIR)
+	try:
+		subprocess.check_output(["chgrp","-R",GID,H_DIR])
+	except:
+		print "Unable to change group on %s" % (H_DIR)
