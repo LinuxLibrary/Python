@@ -30,9 +30,10 @@ TEST = True
 U_CODE = ""
 U_TYPE = ""
 C_TYPE = "ftp"
-USERNAME = ""
+USER_NAME = ""
+USER_CHECK = ""
 PASSWORD = ""
-DESCRIPTION = ""
+DESC = ""
 DIR = "/u01"
 FTP_RANGE_LOW = 30000
 FTP_RANGE_HIGH = 39999
@@ -191,7 +192,7 @@ COUNTS = dict()
 if (C_TYPE == "ftp" or C_TYPE == "export"):
 	PASSWD = commands.getstatusoutput("sudo /u01/ncftpd/sbin/ncftpd_passwd -f /u01/ncftpd/etc/passwd.db -x")[1]
 	for LINE in PASSWD:
-		                COLS = LINE.split(':')
+		COLS = LINE.split(':')
                 UIDS.append(COLS[2])
 	UIDS = [int(NUM) for NUM in UIDS]
 	UIDS.sort()
@@ -202,8 +203,8 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
                 	COUNTS[UID] = COUNTS[UID] + 1
 	for UID in range(FTP_RANGE_LOW,FTP_RANGE_HIGH+1):
 		if UID not in UIDS: break
-	if (UID == FTP_RANGE_HIGH):
-		print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
+		if (UID == FTP_RANGE_HIGH):
+			print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
 		break
 	try:
 		subprocess.check_output(["chmod","-R","0700",H_DIR])
@@ -217,3 +218,17 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
 		subprocess.check_output(["chgrp","-R",GID,H_DIR])
 	except:
 		print "Unable to change group on %s" % (H_DIR)
+	NFS4_DIR = H_DIR
+	NFS4_DIR = NFS4_DIR.replace('u01', 'net/nfs4')
+	FTP_ENTRY = [USER_NAME,PASSWORD,UID,GID,DESC,H_DIR,FTP_SHELL]
+	FTP_ENTRY = ':'.join(FTP_ENTRY)
+	subprocess.check_output(["nfs4_setfacl","-R","-S","/root/bin/acl_base",NFS4_DIR])
+	try:
+		subprocess.check_output(["sudo","/u01/ncftpd/sbin/ncftpd_passwd","-f",FTP_PASSWD,"-c","-a",FTP_ENTRY])
+	except:
+		print "Unable to create user : %s" % (USER_NAME)
+	print "-----------------------------------------"
+	print "Username : %s" % (USER_NAME)
+	print "Password : %s" % (PASSWORD)
+	print "Description : %s" % (DESC)
+	print "-----------------------------------------"
