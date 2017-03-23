@@ -6,7 +6,7 @@
 ## Code revision information ##
 ###############################
 
-# 20170320 		AS		Created mkuser.py
+# 20170323 		AS		Created mkuser.py
 
 
 
@@ -38,7 +38,7 @@ DIR = "/u01"
 FTP_RANGE_LOW = 30000
 FTP_RANGE_HIGH = 39999
 FTP_PASSWD = "/u01/ncftpd/etc/passwd.db"
-FTP_SHELL = None
+FTP_SHELL = "none"
 MAXLEN = 10
 GID = 500
 FTP_CONTROL = "ftp20"
