@@ -20,6 +20,7 @@ import time
 import re
 import string
 import random
+import subprocess
 from datetime import datetime
 
 ###############
@@ -40,7 +41,7 @@ FTP_RANGE_HIGH = 39999
 FTP_PASSWD = "/u01/ncftpd/etc/passwd.db"
 FTP_SHELL = "none"
 MAXLEN = 10
-GID = 500
+GID = "500"
 FTP_CONTROL = "ftp20"
 CURDATE = datetime.now()
 RETVAL = None
@@ -118,17 +119,19 @@ while TEST:
 		print "Usernames must begin with [a-z] and have max of %d chars.\n" % (MAXLEN)
 	else:
 		if (C_TYPE == "ftp" or C_TYPE == "export"):
-			try:
-				USER_CHECK = subprocess.check_output(["sudo","/u01/ncftpd/sbin/ncftpd_passwd","-f",FTP_PASSWD,"-q",USER_NAME]).strip()
-			except:
-				RETVAL = 256
-			if USER_CHECK:
-				print "User already exists!\n"
-			elif (RETVAL == 256):
-				TEST = False
+			PDBFILE = commands.getstatusoutput("sudo /u01/ncftpd/sbin/ncftpd_passwd -f /u01/ncftpd/etc/passwd.db -x")[1]
+			ENTRIES = PDBFILE.split('\n')
+			CHECK_USERS = list()
+			for ENTRY in ENTRIES:
+				USER = ENTRY.split(':')[0]
+				CHECK_USERS.append(USER)
+			TEST = False
+			if USER_NAME in CHECK_USERS:
+				print "User already exists!"
+				TEST = True
+			#	continue
 			else:
-				print "ERROR: ncftpd_passwd returned %d!\n This script cannot continue!\n" % (RETVAL)
-				os._exit()
+				TEST = False
 		else:
 			try:
 				PWFILE = open("/etc/passwd")
@@ -156,6 +159,7 @@ while TEST:
 # FTP User homedir & Password
 H_DIR = "%s/%s/%s/%s" % (DIR,C_TYPE,U_TYPE,USER_NAME)
 PASSWORD = password()
+print PASSWORD
 
 # Create subdirectories for user
 DIRCHECK = os.path.isdir(H_DIR)
@@ -196,9 +200,8 @@ COUNTS = dict()
 
 if (C_TYPE == "ftp" or C_TYPE == "export"):
 	PASSWD = commands.getstatusoutput("sudo /u01/ncftpd/sbin/ncftpd_passwd -f /u01/ncftpd/etc/passwd.db -x")[1]
-	for LINE in PASSWD:
-		COLS = LINE.split(':')
-                UIDS.append(COLS[2])
+	COLS = PASSWD.split(':')
+        UIDS.append(COLS[2])
 	UIDS = [int(NUM) for NUM in UIDS]
 	UIDS.sort()
 	for UID in UIDS:
@@ -211,21 +214,18 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
 		if (UID == FTP_RANGE_HIGH):
 			print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
 		break
-	try:
-		subprocess.check_output(["chmod","-R","0700",H_DIR])
-	except:
-		print "Unable to change permissions on %s" % (H_DIR)
-	try:
-		subprocess.check_output(["chown","-R",UID,H_DIR])
-	except:
-		print "Unable to change owner on %s" % (H_DIR)
-	try:
-		subprocess.check_output(["chgrp","-R",GID,H_DIR])
-	except:
-		print "Unable to change group on %s" % (H_DIR)
+	for root, dirs, files in os.walk(H_DIR):
+		os.chmod(root,0700)
+		os.chown(root, int(UID), int(GID))
 	NFS4_DIR = H_DIR
 	NFS4_DIR = NFS4_DIR.replace('u01', 'net/nfs4')
-	FTP_ENTRY = [USER_NAME,PASSWORD,UID,GID,DESC,H_DIR,FTP_SHELL]
+	NFS4_LIST = NFS4_DIR.split('/')
+	PATH = "/"
+	for i in NFS4_LIST:
+		PATH = os.path.join(PATH,i)
+		if not os.path.isdir(PATH)
+			os.mkdir(PATH)
+	FTP_ENTRY = [USER_NAME,PASSWORD,str(UID),str(GID),DESC,H_DIR,FTP_SHELL]
 	FTP_ENTRY = ':'.join(FTP_ENTRY)
 	subprocess.check_output(["nfs4_setfacl","-R","-S","/root/bin/acl_base",NFS4_DIR])
 	try:
