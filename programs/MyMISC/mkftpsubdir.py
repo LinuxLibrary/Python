@@ -5,6 +5,11 @@
 # This script is used to create subdirectories within ftp customer home directories
 
 ######################
+## Revision History ##
+######################
+20170412  AS  Created
+
+######################
 ## Required Modules ##
 ######################
 import os
