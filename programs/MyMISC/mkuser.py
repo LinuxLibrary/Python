@@ -99,14 +99,14 @@ while TEST:
 		RETVAL = commands.getstatusoutput("ssh -t FTP_CONTROL /root/bin/mksftpuser.bash")[0]
 		print RETVAL
 		# Don't need to do the rest if mksftpuser.bash failed.
-		if (RETVAL == 256): os._exit(RETVAL)
+		if (RETVAL == 256): sys.exit(RETVAL) # os._exit(RETVAL)
 		PATH_NAME = raw_input("\nEnter path: ")
 		time.sleep(25)
-		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/in")
-		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/out")
-		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testin")
-		os.system("nfs4_setfacl -R -S /root/bin/acl_base $path_name/testout")
-		exit()
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base " + PATH_NAME + "/in")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base " + PATH_NAME + "/out")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base " + PATH_NAME + "/testin")
+		os.system("nfs4_setfacl -R -S /root/bin/acl_base " + PATH_NAME + "/testout")
+		sys.exit()
 	else:
 		print "Invalid Option!\n"
 
@@ -129,7 +129,6 @@ while TEST:
 			if USER_NAME in CHECK_USERS:
 				print "User already exists!"
 				TEST = True
-			#	continue
 			else:
 				TEST = False
 		else:
@@ -214,22 +213,27 @@ if (C_TYPE == "ftp" or C_TYPE == "export"):
 		if (UID == FTP_RANGE_HIGH):
 			print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
 		break
-	for root, dirs, files in os.walk(H_DIR):
-		os.chmod(root,0700)
-		os.chown(root, int(UID), int(GID))
+#	for root, dirs, files in os.walk(H_DIR):
+#		os.chmod(root,0700)
+#		os.chown(root, int(UID), int(GID))
+	UID = str(UID)
+	GID = str(GID)
+	os.system("chmod -R 0770 " + H_DIR)
+	os.system("chown -R " + UID + " " + H_DIR)
+	os.system("chgrp -R " + GID + " " + H_DIR)
 	NFS4_DIR = H_DIR
 	NFS4_DIR = NFS4_DIR.replace('u01', 'net/nfs4')
 	NFS4_LIST = NFS4_DIR.split('/')
 	PATH = "/"
 	for i in NFS4_LIST:
 		PATH = os.path.join(PATH,i)
-		if not os.path.isdir(PATH)
+		if not os.path.isdir(PATH):
 			os.mkdir(PATH)
 	FTP_ENTRY = [USER_NAME,PASSWORD,str(UID),str(GID),DESC,H_DIR,FTP_SHELL]
 	FTP_ENTRY = ':'.join(FTP_ENTRY)
-	subprocess.check_output(["nfs4_setfacl","-R","-S","/root/bin/acl_base",NFS4_DIR])
+	os.system("nfs4_setfacl -R -S /root/bin/acl_base " + NFS4_DIR)
 	try:
-		subprocess.check_output(["sudo","/u01/ncftpd/sbin/ncftpd_passwd","-f",FTP_PASSWD,"-c","-a",FTP_ENTRY])
+		os.system("sudo /u01/ncftpd/sbin/ncftpd_passwd -f " + FTP_PASSWD + " -c -a " + FTP_ENTRY)
 	except:
 		print "Unable to create user : %s" % (USER_NAME)
 	# Print Username, Password and Description
