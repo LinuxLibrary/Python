@@ -28,7 +28,7 @@ from datetime import datetime
 ## ARGUMENT PARSING ##
 ######################
 
-parser = argparser.ArgumentParser(description='FTP Account Creation')
+parser = argparse.ArgumentParser(description='FTP Account Creation')
 parser.add_argument("--ctype", dest="cType", default="ftp", required=True, help="FTP connection type (ftp|export) For SFTP/FTPS use export & PLEASE INPUT DIR NAME")
 parser.add_argument("--dir", dest="dName", required=False, help="DIR Name for export connection users")
 parser.add_argument("--atype", dest="aType", required=True, help="FTP account type (hub|fi|rfi|vendor|home|sftp|ftps|images|analytics)")
@@ -163,7 +163,7 @@ if (args.cType == "ftp" or args.cType == "export"):
 		if (UID == FTP_RANGE_HIGH):
 			print "Out of UIDs in range %d - %d" % (FTP_RANGE_LOW,FTP_RANGE_HIGH)
 		break
-		UID = str(UID)
+	UID = str(UID)
 	GID = str(GID)
 	os.system("chmod -R 0770 " + H_DIR)
 	os.system("chown -R " + UID + " " + H_DIR)
@@ -174,13 +174,13 @@ if (args.cType == "ftp" or args.cType == "export"):
 	PATH = "/"
 	for i in NFS4_LIST:
 		PATH = os.path.join(PATH,i)
-		if not os.path.isdir(PATH)
+		if not os.path.isdir(PATH):
 			os.mkdir(PATH)
-	FTP_ENTRY = [USER_NAME,PASSWORD,str(UID),str(GID),DESC,H_DIR,FTP_SHELL]
+	FTP_ENTRY = [args.uName,PASSWORD,str(UID),str(GID),args.desc,H_DIR,FTP_SHELL]
 	FTP_ENTRY = ':'.join(FTP_ENTRY)
 	os.system("nfs4_setfacl -R -S /root/bin/acl_base " + NFS4_DIR)
 	try:
-		os.system("sudo /u01/ncftpd/sbin/ncftpd_passwd -f " + FTP_PASSWD + " -c -a " + FTP_ENTRY])
+		os.system("sudo /u01/ncftpd/sbin/ncftpd_passwd -f " + FTP_PASSWD + " -c -a " + FTP_ENTRY)
 	except:
 		print "Unable to create user: %s" % (args.uName)
 
