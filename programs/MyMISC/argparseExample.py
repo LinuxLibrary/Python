@@ -2,7 +2,10 @@
 
 import argparse
 parser = argparse.ArgumentParser(description='Promote artifact')
-parser.add_argument("--unit", dest="unit", default="web", required=True)
+#args = parser.parse_args()
+parser.add_argument("--unit", dest="unit", default="web", required=True, help="Unit name")
+parser.add_argument("--name", dest="name", required=False)
+parser.add_argument("--desg", dest="desg", required=False)
 parser.add_argument("--product", dest="product", required=True)
 parser.add_argument("--subproduct", dest="subproduct", required=True)
 parser.add_argument("--from", dest="from_env", default="dev", required=True)
@@ -10,6 +13,13 @@ parser.add_argument("--to", dest="to_env", default="test", required=True)
 parser.add_argument("--version", dest="vers", required=True)
 parser.add_argument("--type", dest="dep_type", default="deployment", required=False)
 args = parser.parse_args()
+'''
+if (args.unit == "sysops"):
+	parser.add_argument("--name", dest="name", required=True)
+	print "Hello %s" % (args.name)
+else:
+	parser.add_argument("--name", dest="name", required=False)
+'''
 event = {
     "actions": [
         {
@@ -24,6 +34,8 @@ event = {
         }
     ]
 }
+if (args.unit == "sysops"):
+	print "%s : %s" % (args.name, args.desg)
 print event
 '''
 Usage: 
