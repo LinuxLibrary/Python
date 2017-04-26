@@ -39,7 +39,7 @@ signature = base64.b64encode(hmac.new(AccessKey,msg=requestVars,digestmod=hashli
 #Construct headers
 auth = 'LMv1 ' + AccessId + ':' + signature + ':' + epoch
 headers = {'Content-Type':'application/json','Authorization':auth}
-
+response = requests.get(url, headers=headers)
 
 #Make request
 heads = list()
