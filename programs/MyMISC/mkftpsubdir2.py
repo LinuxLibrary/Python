@@ -31,8 +31,8 @@ args = parser.parse_args()
 ## VARIABLES ##
 ###############
 BASE_DIR = "/net/u01/ftp"
-C_TYPE = args.aType
-SDIRS = args.sDirs
+C_TYPE = ""
+SDIRS = args.sDirs.split()
 ACCOUNT = args.user
 
 ## Check for ROOT-USER
@@ -55,7 +55,7 @@ def create_dirs():
 			os.mkdir(SDIR)
 			os.system("chmod 770 " + SDIR)
 			os.system("chown " + UID + ":" + GID + " " + SDIR)
-			os.system("nfs4_setfacl -S /root/bin/acl_subdir " + SDIR)
+#			os.system("nfs4_setfacl -S /root/bin/acl_subdir " + SDIR)
 	else:
 		print "Account doesn't exists! Please input a valid ftp account and try again"
 
@@ -76,6 +76,7 @@ if not C_TYPE:
 	print DIR
 	create_dirs()
 else:
+	C_TYPE = args.aType.split()
 	for TYPE in C_TYPE:
 		DIR = os.path.join(BASE_DIR,TYPE,ACCOUNT)
 		print DIR
