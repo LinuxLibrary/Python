@@ -49,6 +49,7 @@ def create_dirs():
 		INDIR = os.path.join(DIR,'in')
 		UID = str(os.stat(INDIR).st_uid)
 		GID = str(os.stat(INDIR).st_gid)
+		print INDIR, UID, GID
 		for SDIR in SDIRS:
 			SDIR = os.path.join(DIR,SDIR)
 			os.mkdir(SDIR)
@@ -66,15 +67,18 @@ if not C_TYPE:
 	DIR = args.abPath
 	DIR = DIR.lstrip('/')
 	dList = DIR.split('/')
+	print DIR, dList
 	if "net" not in dList:
 		dList.insert(0, "net")
 		DIR = "/" + '/'.join(dList)
 	else:
 		DIR = "/" + DIR
+	print DIR
 	create_dirs()
 else:
 	for TYPE in C_TYPE:
 		DIR = os.path.join(BASE_DIR,TYPE,ACCOUNT)
+		print DIR
 		create_dirs()
 
 # END
