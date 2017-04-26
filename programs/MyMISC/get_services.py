@@ -58,7 +58,7 @@ for _line in rawJson:
 csvHeads = ','.join(heads)
 csvRows = ','.join(rows)
 
-file = open('/tmp/wfData.csv', 'w+')
+file = open('wfData.csv', 'w+')
 file.write(csvHeads + "\n")
 file.write(csvRows)
 file.close()
