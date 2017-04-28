@@ -6,3 +6,10 @@
 - [Python-Module-Reference-1](https://docs.python.org/2/library/)
 - [Python-Module-Reference-2](http://marvin.cs.uidaho.edu/Teaching/CS515/pythonLibrary.pdf)
 - Let us look at the subprocess module through which we can run Linux commands through a Python program
+- To get the Kernel and OS Version info
+
+```
+>>> import subprocess
+>>> uname = subprocess.check_output("uname","-r")
+>>> print uname
+```
