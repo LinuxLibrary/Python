@@ -1,0 +1,14 @@
+# Simple Python Objects
+
+------------------------
+class PartyAnimal:
+	x = 0
+	def party(self):
+		self.x = self.x + 1
+		print "So fat", self.x
+
+an = PartyAnimal()
+an.party()
+ or 
+PartyAnimal.party(an)  --> Here we are calling the alias of the PartyAnimal class as a self instance.
+

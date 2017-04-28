@@ -1,0 +1,93 @@
+# Operators:
+------------
+
+- is
+- is not
+- is None
+- break
+- continue
+
+
+"is" operator:
+--------------
+"is" can be used iin logical operations. It will work similar to "==".
+
+x = 5
+if x is 1:
+	print "x : 1"
+else:
+	print x
+
+Output: 5
+
+"is not" operator:
+------------------
+This is similar to "!=".
+
+x = 1
+if x is not 5:
+	print "x :", x
+else:
+	print "x = 5"
+
+Output: "x : 1"
+
+"is None" operator:
+-------------------
+Some times we need to work with the variables dynamically with in the program and in that case '0' might also be involved for
+that variable in that program. In such cases we cannot assign '0' to that variable. But we can assign 'None' to that variable
+
+x = None
+if x > None or x < None:
+	print x
+else:
+	print "Please change the value of x from None"
+
+Output: Please change the value of x from None
+
+
+"break" Operator:
+-----------------
+Depending on the output of an operation or condition in the program we some times need to break its operation. Using "break"
+operator will quits or exits the program.
+
+while True:
+	x = raw_input("Input an integer: ")
+	if len(x) < 1:
+		print "Have a nice day, bye"
+		break
+	else:
+		x = int(x)
+		print x, type(x)
+
+"continue" operator:
+--------------------
+This operator helps a lot in loops. If the user inputs anything different from what the program expects then the program will
+exits. In such case we can use "continue" operator to just break the current loop and continues with the loop again.
+
+for i in range(5):
+	x = raw_input("Input a number: ")
+	try:
+		print "Try-", i, x, type(x)
+		x = int(x)
+		print x, type(x)
+	except:
+		print "Please input numbers only"
+		continue
+
+....: Output :....
+Input a number: 34
+Try- 0 34 <type 'str'>
+34 <type 'int'>
+Input a number: 3
+Try- 1 3 <type 'str'>
+3 <type 'int'>
+Input a number: 4
+Try- 2 4 <type 'str'>
+4 <type 'int'>
+Input a number: asfg
+Try- 3 asfg <type 'str'>
+Please input numbers only
+Input a number: 234
+Try- 4 234 <type 'str'>
+234 <type 'int'>

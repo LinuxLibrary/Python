@@ -1,0 +1,121 @@
+# Conditional Statements:
+-------------------------
+
+Basics of Conditional Statements:
+Conditional statements let Python know it is about to enter a decision-making structure. 
+The if statement is the simplest of the conditional statements (to read more on other 
+conditional statements see Conditional Execution: More Complex Conditionals: Alternative 
+Execution below). Conditional statements always end with the : colon character, after 
+which the code you may want to execute is placed.
+
+Example:
+if x > 0 : print 'x is positive'
+
+if x > 0 :
+    print 'x is positive'
+    print 'all other numbers bigger than x are probably positive as well'
+
+In the second example we see the statements have been indented one leven ahead (\t char).
+This is to let the condition know where to start and where to end. This condition will be
+stopped where it will be de-indented.
+
+Comparison Operators:
+There are many different ways to construct a conditional statement in Python using comparison 
+operators. The comparison operators provided by Python are:
+Less than ( < )
+x < y
+Less than or equal ( <= )
+x <= y
+Greater than ( > )
+x > y
+Greater than or equal ( >= )
+x >= y
+Equality ( == )
+x == y
+Inequality ( != )
+x != y
+
+
+Complex Conditionals:
+---------------------
+
+Logical Operators:
+Python also provides a set of logical operators to combine multiple boolean expressions 
+together for more complex boolean logic testing.
+- Logical AND ( and )
+	and checks whether both boolean expressions evaluate as true
+	if x > 0 and y > 0 : print 'this line runs if both numbers are positive'
+- Logical OR ( or )
+	or checks whether either expression is evaluated as true
+	if x > 0 or y > 0 : print 'this line runs if either x or y is evaluated as positive'
+- Logical NOT ( not )
+	not negates a boolean expression
+	if not( x > y ) : print 'this line runs when x is less than or equal to y'
+
+
+Alternative Execution:
+----------------------
+There are even more complex conditional statements available to exercise better control over 
+code block execution in the form of the elif and else statements.
+
+elif example:
+if x % 2 == 0 :
+     print 'x is an even number'
+elif not( x % 2 == 0) :
+     print 'x is an odd number'
+
+elif is nearly identical to the if statement in its form. You can provide another set of 
+boolean expressions to test after the elif followed by a : and an alternative indented 
+block of code to execute should that boolean logic evaluate as true instead of if.
+
+ if x % 2 == 0 :
+     print 'x is an even number'
+ else :
+     print 'x is an odd number'
+
+else is a final catch-all condition statement placed at the bottom of an conditional statement stack.
+
+Chained Conditionals:
+if, elif, and else statements can be combined to form a comprehensive logical flow to your program:
+
+ if x > 0 :
+     print 'x is a positive number'
+ elif x < 0 :
+     print 'x is a negative number'
+ else :
+     print 'x is 0'
+
+Nested Conditionals:
+You can also have one or more conditional statements indented as a subset of a parent conditional, 
+forming a hierarchy of nested conditional logic:
+
+ if x == y :
+     print 'x and y are equal'
+ else :
+     if x < y :
+         print 'x is less than y'
+     elif x > y :
+         print 'x is greater than y'
+
+Error Handling Code - Try/Except:
+---------------------------------
+
+There is a conditional execution structure built into Python to handle potentially error prone 
+code called the “try / except” block. The idea of try and except is that if you know that a 
+particular block of code may have a problem executing and you want to maintain some semblance 
+of program control instead of Python simply quitting with errors when it encounters this poten
+-tially volatile code, you can provide Python an alternative block of code to be executed if 
+an error occurs. These extra statements (the except block) are ignored if there is no error. 
+This is especially useful for code that involves potentially erroneous user input but can apply 
+to any code debugging situation you're dealing with.
+Try/Except - Beginning with try, Python tests the first operation. If the operation fails, then 
+it proceeds to follow the instructions in except. If the try is successful then except is skipped.
+
+test = raw_input("Enter an integer:")  
+try:  
+   test = int(test)  
+except:  
+   print "Invalid entry."
+   quit()  
+result = test * 2  
+print result

@@ -1,0 +1,91 @@
+# Functions:
+------------
+
+Programmers tend to write a lot of code, sometimes writing intricately nested conditionals and plugging in variables into complex formulas
+just to calculate one value or derive one output. However, repeating those several lines of code over and over again for every time the co
+-mputation is required can make your source code quite verbose as well as tedious to maintain.
+
+In many programming languages there is a very powerful notion of "modular code" that can help solve this dilemma. Various segments of rela
+-ted code are broken apart and collapsed into smaller sets that can then be used to contribute to the larger, overarching scheme of the pr
+-ogram itself. These reusable, modular pieces have different names in different languages (modules, routines, sub-routines, methods, etc),
+but in Python and many other languages besides, these are referred to as functions.
+
+Built-In Functions:
+Whether we realized it or not, we have already been using functions extensively in our programs since week 1. Python has a number of built
+-in functions we can use without any knowledge of how its internal code actually works, so long as we know what the function name is. 
+
+Examples include:
+- raw_input()
+- type()
+- int()
+- float()
+- str()
+- max()
+- len()
+
+Function Calls:
+Utilizing a function is simple. We execute a function by addressing its name; this is called invoking a function.
+
+x = raw_input()
+
+When assigning the value to x, function raw_input() is invoked using its name. As soon as Python reads this line of code Python accesses
+all the code pertinent to function raw_input() it has built in and executes, resulting in our program "freezing" while a blinking cursor
+appears at the terminal awaiting user input.
+
+Arguments:
+After the function call, we can optionally pass in any arguments in the form of variables or constants that the function might accept as
+well in the following parentheses.
+
+x = raw_input("Enter the value of x: ")
+
+User-Defined Functions:
+Python also allows us to create our own custom functions. This can be very useful if the functionality we seek isn't provided in one of
+Python's built-in functions or if we simply want to consolidate repetitive code.
+
+Function Definitions:
+def myFunction():
+    # your code goes here...
+
+In order to define a function we use the def keyword. This is followed by the unique name you wish to invoke your function with and a set
+of parentheses. You end the line with the : colon character. Your code block is then placed in the following lines, indented 4 space char
+-acters in or else the best way for indentation is to use tab character (\t).
+
+Function Placement:
+Function definitions have to be placed before you invoke them (common practice holds to define all functions at the very top of your sour
+-ce code file). It is similar in concept to the use of a variable in that if Python encounters a variable name such as myVariable before 
+you assign a value to it Python will not know what "myVariable" means and therefore gives a traceback error. In similar regard, the funct
+-ion definition teaches Python what myFunction() is, how to recognize it when it is invoked, and what code to run once it is called in yo
+-ur code.
+
+def myFunction():
+    print 'I am now printing from myFunction :D'
+
+print 'I am printing from the main body of code'
+myFunction()
+
+# Output
+I am printing from the main body of code
+I am now printing from myFunction :D
+
+Parameters:
+You can also specify parameters within the parentheses that your function can work with. Parameters are temporary variables that act as
+placeholders for the arguments passed in on the function call.
+
+def product(num1, num2):
+    num3 = num1 * num2
+
+Returns:
+If we want our calculations to have permanence then, we can "return" a value back to function call using the return keyword followed by
+a variable, constant, or expression.
+
+def product(num1, num2):
+    num3 = num1 * num2
+    return num3
+
+# somewhere in the middle of your code...
+triangleArea = product(base, height) * 0.5
+
+Modules:
+Modules are nothing but python programs. The python programs which are prepared by someone or else prepared by the python community.
+We also can prepare our own modules or else can use some custom modules which have been downloaded from anywhere. All we need to do
+is that we need to copy the python program to the Python lib directory (/usr/lib/pythonX.X/). Now we can use this program as a module

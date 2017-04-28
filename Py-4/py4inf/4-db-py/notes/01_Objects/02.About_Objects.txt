@@ -1,0 +1,7 @@
+# What is an Object?
+
+- An object is a bit of self-contained code and data.
+- A key aspect of an object is to break the problem into smaller understandable parts.
+- Objects have boundaries that allow us to ignore un-needed details.
+- We have been using objects all along.
+   String Objects, Integer Objects, Dictionary Objects, List Objects...

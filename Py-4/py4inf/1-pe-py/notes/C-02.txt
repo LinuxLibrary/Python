@@ -1,0 +1,104 @@
+C2 - Variables
+--------------
+- Constants
+	Are Fixed values such as numbers, letters and strings. String constants use single or double quotes.
+
+- Variables
+	Virtually all programming languages, including Python, utilize variables in order to do sustained calculations and manipulate data.
+	Variables represent a named location in a computer memory the programmer uses to store various values to keep track of for use later. 
+	Variables can then be retrieved and acted on at any time using the assigned variable "name."
+
+- Variable Naming
+	Variables can have any name you decide to use that makes sense with only a few restrictions in the way of rules.
+	Variable names can only contain letters (a, b, c, A, etc.), numeric digits (1, 2, 3, etc.), or _underscore_ characters.
+	However they cannot start with a digit
+	Also strictly avoid using Python's list of reserved keywords
+
+- Variable Assignment
+	Python statements are lines of code that do something. The most common type of statement you'll probably come across are assignment statements
+	An assignment statement consists of two expressions connected by an equal sign in between them.
+    Ex:
+	age = 57
+	The left hand side age is a variable, essentially representing a memory location in the computer.
+	The right hand side 57 is a simple mathematical expression, and its value is stored in the memory location represented by variable name age
+	So the above assignment statement assigns the value 57 to the variable age.
+
+- Evaluation Logic Flow
+	Although almost all Python code is exclusively executed sequentially line-by-line from top to bottom and each line evaluated from left to 
+	right, assignment statements have their right hand mathematical expression calculated first and then have the resulting value assigned to 
+	the variable (unless you are declaring a variable for the first time). Consider the following series of assignments:
+
+    x = 3
+    y = 4
+    x = x + 6
+    y = x + y
+
+- Operator Precedence (PEMDAS)
+	Python also has a built operator precedence that affects the flow of mathematical evaluation. This means that certain calculations in more 
+	complex mathematical expressions will be evaluated first before moving on to others. An easy way to memorize the orders of operators is the 
+	acronym PEMDAS. Python's operator precedence is as follows:
+    PEMDAS:
+	Parenthesis (P)
+	Exponents / Roots (E)
+	Multiplication and Division (M D)
+	Addition and Subtraction (A S)
+	Multiplication and division are really in the same precedence class; that's why I grouped them together because splitting them into two 
+	separate classes(with two different numbers) may give the inspiration that one is of higher precedence over the other. The same applies 
+	to addition and subtraction.
+
+To avoid the confusion with Multiplication we have another formula i.e., BODMAS
+    BODMAS:
+	Brackets (Parenthesis)
+	Order (Powers/Exponents , Square Roots)
+	Division
+	Multiplication
+	Addition
+	Subtraction
+
+- Assigning from User Input
+	The command to accept user input is `raw_input(). This will make a pop-up box appear on your screen.
+    Example:
+	name = raw_input("What is your name, human? ")
+	print "Hello", name + "! I am Python :D"
+
+- Data Types
+  The data types we have learned about so far are:
+    Numeric types
+      Integer numbers
+	A whole number, i.e. a number that is not a fraction
+	Ex: 1, 5, 33, -24, 5000
+      Floating-point numbers
+	A number with a fraction or decimal point
+	17.34, 98.2, -768.001, 0.2
+    Strings
+	A collection of characters
+	This can be alphabetic characters, special characters, or even numeric characters (but saved as type string, enclosed in "quotes")
+	Ex: "Alphabetic", "ch@r@cter$!!!", "1234567890"
+
+- Type Conversion
+	We need to convert the type of the data we have. Most of the times we get string data from the "raw_input" irrespective of what the
+	user provide. Also some times we might have some plain integers and those need to be converted to float. We can do that by using
+	int() and float() built-in functions.
+    Ex:
+	In [1]: num = raw_input("Please enter a number: ")
+	Please enter a number: 56
+
+	In [2]: type(num)
+	Out[2]: str
+
+	In [3]: int(num)
+	Out[3]: 56
+
+	In [4]: num = int(raw_input("Please enter a number: "))                                                                                                Please enter a number: 56
+
+	In [5]: type(num)
+	Out[5]: int
+
+	In [6]: num = float(raw_input("Please enter a number: "))
+	Please enter a number: 56
+
+	In [7]: num
+	Out[7]: 56.0
+
+	In [8]: type(num)
+	Out[8]: float

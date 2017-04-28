@@ -1,0 +1,6 @@
+# Terminology in Python
+
+- Class -- A template
+- Method or message -- A definied capability of a class
+- Field or attribute -- A bit of data in a class
+- Object or instance -- A particular of a class

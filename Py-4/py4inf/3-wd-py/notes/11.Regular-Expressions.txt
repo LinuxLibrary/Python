@@ -1,0 +1,38 @@
+Regular Expressions:
+--------------------
+
+^	-	Matches the beginning of the line
+$ 	-	Matches the ending of the line
+.	-	Matches any character
+\s	-	Matches a white space
+\S	-	Matches a non-whitespace character
+*	-	Repeats a character zero or more times
+*?	-	Repeats a character zero or more times (non-greedy)
++	-	Repeats a character one or more times
++?	-	Repeats a character one or more times (non-greedy)
+[qwert]	-	Matches a single character in the listed set
+[^XYZ]	-	Matches a single character not in the listed set
+[a-z0-9]-	The set of characters can include a range
+(	-	Indicates where string extraction is to start
+)	-	Indicates where string extraction is to end
+
+
+To work with the regular expressions in Python we need to import the "re" library at the beginning of the program.
+
+Use of '^':
+if line.startswith('From: '):	--->	if re.search('^From: ', line):
+
+'^X.*:'				---> 	Line starts with 'X' and have a ':' and 'X'
+'^X-\S+:'			--->	Line starts with 'X-' and have atleast one or more non-whitespace before ':' and 'X'
+re.findall('[0-9]+', x)	--->	Matches all the numerics in a line which might contain one or more digits
+'^F.+:'				--->	Line starts with F and have one or more characters in between ':' and 'F'
+	In the above case if we have an input like "From: Using the : character" then it will get the output as
+	"From: Using the :" as this is a greedy search. If we just need to search only upto the first occurance
+	then we need to go for a non-greedy search just like below.
+'^F.+?:'			--->	Line starts with 'F' and upto the first occurance of ':'
+re.findall('\S+@\S+', x)	--->	Find '@' sign and look for non-whitespace characters before and after it.
+					Means to find an email address from a line
+re.findall('^From (\S+@\S+)', x) -->	Line starts with 'From and have an email address in the line
+re.findall('@([^ ]*)', line)	--->	Find '@' sign and which have non-whitespaces after it and  get the value.
+					Which gets you the domain name from an email.
+re.findall('^From .*@([^ ]*)', x) ->	This will works same like above.
