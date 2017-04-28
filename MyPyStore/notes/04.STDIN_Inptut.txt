@@ -1,0 +1,69 @@
+STDIN Input:
+------------
+
+>>> print "first", "second"
+first second
+
+>>> print "first" + "second"
+firstsecond
+
+>>> print "hello"*3
+hellohellohello
+
+>>> print "hello "*3
+hello hello hello
+
+>>> message = raw_input("What is your message? ")
+What is your message? Hello World
+
+Here it will prompts for the input.
+This raw_input command in Python acts like read in Bash.
+
+>>> print message
+Hello World
+
+>>> raw_input("What is your message? ")
+What is your message? Hello World2
+Hello World2
+
+The first method stores the raw input into the string and we can use it where we need. But in the second case we can't.
+
+>>> input("Please specify an integer: ")
+Please specify an integer: 100
+100
+
+>>> raw_input(input("Please specify an integer: "))
+Please specify an integer: 100
+100
+''
+
+>>> raw_input(type(input("Please specify an integer: ")))
+Please specify an integer: 100
+<type 'int'>
+''
+
+>>> raw_input(type(input("Please specify an integer: ")));
+Please specify an integer: 'Python Edition'
+<type 'str'>
+''
+
+
+This input command is same as raw_input but the only  and main difference is raw_input accepts strings and input accepts integers.
+
+# vi life1.py
+
+#!/usr/bin/python
+# Author:
+
+print "----- Life Expectency v0.99-----"
+name = raw_input("What is your name? ")
+print name,
+age = input("What is your age? ")
+print name,
+expect = input("To what age do you expect to live? ")
+print name,
+print "Based on our calculation, you will live for ", expect - age, " more years"
+print "Thank you for using Lie Expectancy v0.99"
+
+# END
+
