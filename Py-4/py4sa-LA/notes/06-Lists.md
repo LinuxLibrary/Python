@@ -91,7 +91,7 @@ list3 = ["a", "b", "c", "d"]
 - ***Built-in List Functions & Methods***
 
 SN | Function | Description
----------------------------
+---|----------|--------------
 1 | cmp(list1, list2) | Compares elements of both lists.
 2 | len(list) | Gives the total length of the list.
 3 | max(list) | Returns item from the list with max value.
