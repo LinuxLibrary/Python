@@ -1,6 +1,6 @@
 # Conditional Statements in Python
 
-* `if` statement
+* *`if` statement*
 	- In order to write useful programs, we almost always need the ability to check conditions and change the behavior of the program accordingly. Conditional statements give us this ability. The simplest form is the if statement, which has the genaral form:
 	
 	```
