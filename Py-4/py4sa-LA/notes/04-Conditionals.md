@@ -13,7 +13,7 @@
 		- The line after the colon must be indented. It is standard in Python to use four spaces for indenting.
 		- All lines indented the same amount after the colon will be executed whenever the BOOLEAN_EXPRESSION is true.
 
-* `if else` statement
+* ***`if else` statement***
 	- It is frequently the case that you want one thing to happen when a condition it true, and something else to happen when it is false. For that we have the if else statement.
 
 	```
@@ -25,7 +25,7 @@
 
 	- Here, the first print statement will execute if food is equal to 'spam', and the print statement indented under the else clause will get executed when it is not.
 
-* Chained Conditionals
+* ***Chained Conditionals***
 	- Sometimes there are more than two possibilities and we need more than two branches. One way to express a computation like that is a chained conditional:
 
 	```
@@ -39,7 +39,7 @@
 
 	- `elif` is an abbreviation of `else if`. Again, exactly one branch will be executed. There is no limit of the number of elif statements but only a single (and optional) final else statement is allowed and it must be the last branch in the statement.
 
-* Nested Conditionals
+* ***Nested Conditionals***
 	- One conditional can also be nested within another. (It is the same theme of composibility, again!) We could have written the previous example as follows:
 
 	```
