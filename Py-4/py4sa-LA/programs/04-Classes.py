@@ -6,7 +6,7 @@
 class Car():
 	def __init__(self):
 		print "Car started"
-	def color(self,color)
+	def color(self,color):
 		print "Your %s car is looking awesome" % color
 	def accel(self,speed):
 		print "Speeding upto %s mph" % speed
