@@ -24,6 +24,7 @@ def elapsed_time(function_to_time):
 		t1 = time.time()
 		print "Elapsed time is : %s\n" % (t1 - t0)
 	return wrapper
+
 @elapsed_time
 def download_webpage():
         url = 'http://linux-library.blogspot.in'
