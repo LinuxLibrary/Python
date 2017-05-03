@@ -31,4 +31,11 @@ def download_webpage():
         return response.read()
 download_webpage()
 
+@elapsed_time
+def another_function():
+        print "Doing something else"
+        for i in range(1,1000000):
+		pass
+another_function()
+
 # END
