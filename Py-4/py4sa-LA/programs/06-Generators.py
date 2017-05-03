@@ -9,6 +9,7 @@ def counter():
 		return i
 a = counter()
 print type(a)
+
 print a
 print a
 print "There is no change. Let us try using Generators"
@@ -19,6 +20,7 @@ def counter():
 		yield i
 a = counter()
 print type(a)
+
 print a
 print a
 print a
