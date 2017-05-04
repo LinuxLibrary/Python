@@ -28,11 +28,12 @@ ssh2			-	Leave it
 '''
 
 match1 = re.search('[A-Z][a-z]{2}\s{1,2}\d{1,2}\s\d{2}:\d{2}:\d{2}\s\w*\ssshd\[\d*\]: Failed password for \w+ from \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} port \d* ssh2', line)
-
-print match1
-
-match2 = re.search('^(.*?)\s(\w+)\ssshd.*?Failed\spass.*?from\s(.*?)\sport.*$', line)
-#print match
-print match2.groups()
+print "Match-1\n" + '=' * 7 + "\n", match1
+match2 = re.search('^(.*?\s{1,2}.*?\s.*?)\s(\w.*?)\ssshd.*?Failed\spass.*?from\s(.*?)\sport.*$',line)
+print "Match-2\n" + '=' * 7 + "\n", match2.groups()
+match3 = re.search('^(.*?\s{1,2}.*?\s.*?)\s(\w.*?)\ssshd.*?from\s(.*?)\sport.*$',line)
+print "Match-3\n" + '=' * 7 + "\n", match3.groups()
+match4 = re.search('^(.*?\s{1,2}.*?\s.*?)\s(\w.*?)\ssshd.*?Failed.*?from\s(.*?)\sport.*$',line)
+print "Match-4\n" + '=' * 7 + "\n", match4.groups()
 
 # END
