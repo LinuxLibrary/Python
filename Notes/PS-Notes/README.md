@@ -1,0 +1,1 @@
+# Python Pluralsight Path Notes
