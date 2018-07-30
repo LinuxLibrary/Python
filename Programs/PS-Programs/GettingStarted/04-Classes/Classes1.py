@@ -7,4 +7,7 @@ class Student:
 	
 	def __str__(self):
 		return "Student"
+		
+		
+mark = Student("Mark")
 print(students)
