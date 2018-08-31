@@ -46,3 +46,66 @@
 	'y': 'yankee',
 	'z': 'zulu'}
 	```
+	
+- Copying one dictionary to another
+
+	```
+	In [11]: d = dict(goldenrod=0xDAA520, indigo=0x4B0082, seashell=0xFFF5EE)
+	
+	In [12]: d
+	Out[12]: {'goldenrod': 14329120, 'indigo': 4915330, 'seashell': 16774638}
+	```
+	
+- Updating dictionary using another dictionary
+
+	```
+	In [13]: g = dict(wheat=0xF5DEB3, khaki=0xF0E68C, crimson=0xDC143C)
+
+	In [14]: g
+	Out[14]: {'crimson': 14423100, 'khaki': 15787660, 'wheat': 16113331}
+	
+	In [16]: d.update(g)
+
+	In [17]: d
+	Out[17]: 
+	{'crimson': 14423100,
+	'goldenrod': 14329120,
+	'indigo': 4915330,
+	'khaki': 15787660,
+	'seashell': 16774638,
+	'wheat': 16113331}
+	```
+	
+- Looping through a dictionary
+
+	```
+	In [20]: for key in phonetic:
+	   ....:	 print("{key} => {value}".format(key=key, value=phonetic[key]))
+	   ....:
+	a => alfa
+	c => charlie
+	b => bravo
+	e => echo
+	d => delta
+	g => golf
+	f => foxtrot
+	i => india
+	h => hotel
+	k => kilo
+	j => juliet
+	m => mike
+	l => lima
+	o => oscar
+	n => november
+	q => qubec
+	p => papa
+	s => sierra
+	r => romeo
+	u => uniform
+	t => tango
+	w => whiskey
+	v => victor
+	y => yankee
+	x => x-ray
+	z => zulu
+	```
