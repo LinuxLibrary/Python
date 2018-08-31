@@ -75,8 +75,25 @@
 	'seashell': 16774638,
 	'wheat': 16113331}
 	```
+
+- Looping through the keys of a dictionary
+
+	```
+	for key in phonetic:
+		print(key)
+	```
+
+- Looping through the values of a dictionary
+
+	```
+	for key in phonetic:
+		print(phonetic[key])
+		
+	for value in phonetic.values():
+		print value
+	```
 	
-- Looping through a dictionary
+- Looping through the keys and values of a dictionary
 
 	```
 	In [20]: for key in phonetic:
