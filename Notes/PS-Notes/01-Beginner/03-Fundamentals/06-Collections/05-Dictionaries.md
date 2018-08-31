@@ -96,33 +96,6 @@
 - Looping through the keys and values of a dictionary
 
 	```
-	In [20]: for key in phonetic:
-	   ....:	 print("{key} => {value}".format(key=key, value=phonetic[key]))
-	   ....:
-	a => alfa
-	c => charlie
-	b => bravo
-	e => echo
-	d => delta
-	g => golf
-	f => foxtrot
-	i => india
-	h => hotel
-	k => kilo
-	j => juliet
-	m => mike
-	l => lima
-	o => oscar
-	n => november
-	q => qubec
-	p => papa
-	s => sierra
-	r => romeo
-	u => uniform
-	t => tango
-	w => whiskey
-	v => victor
-	y => yankee
-	x => x-ray
-	z => zulu
+	for key in phonetic:
+		print("{key} => {value}".format(key=key, value=phonetic[key]))
 	```
