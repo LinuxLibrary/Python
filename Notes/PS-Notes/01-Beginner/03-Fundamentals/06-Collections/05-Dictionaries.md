@@ -1,17 +1,26 @@
 # Dictionaries
 
-- Converting a list of tuples into a Dictionary
+- Like lists dictionaries can easily be changed, can be shrunk and grown ad libitum at run time.
+- They shrink and grow without the necessity of making copies.
+- Dictionaries can be contained in lists and vice versa.
+- But what's the difference between lists and dictionaries? Lists are ordered sets of objects, whereas dictionaries are unordered sets.
+- But the main difference is that items in dictionaries are accessed via keys and not via their position.
+- A dictionary is an associative array (also known as hashes).
+- Any key of the dictionary is associated (or mapped) to a value.
+- The values of a dictionary can be any Python data type.
+- So dictionaries are unordered key-value-pairs. 
+- Dictionaries don't support the sequence operation of the sequence data types like strings, tuples and lists.
+- Dictionaries belong to the built-in mapping type.
+
+- Creating an empty dictionary
 
 	```
-	In [1]: name_and_ages = [('Alice',32),('Bob',48),('Charlie',28),('Daniel',33)]
-
-	In [2]: d = dict(name_and_ages)
+	In [1]: dict = {}
 	
-	In [3]: d
-	Out[3]: {'Alice': 32, 'Bob': 48, 'Charlie': 28, 'Daniel': 33}
-	
+	In [2]: dict
+	Out[2]: {}
 	```
-	
+
 - Declaring dictionary
 
 	```
@@ -45,6 +54,18 @@
 	'x': 'x-ray',
 	'y': 'yankee',
 	'z': 'zulu'}
+	```
+	
+- Converting a list of tuples into a Dictionary
+
+	```
+	In [1]: name_and_ages = [('Alice',32),('Bob',48),('Charlie',28),('Daniel',33)]
+
+	In [2]: d = dict(name_and_ages)
+	
+	In [3]: d
+	Out[3]: {'Alice': 32, 'Bob': 48, 'Charlie': 28, 'Daniel': 33}
+	
 	```
 	
 - Copying one dictionary to another
