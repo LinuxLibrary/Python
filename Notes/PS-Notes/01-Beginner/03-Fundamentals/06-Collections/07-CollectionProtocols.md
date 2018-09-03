@@ -42,3 +42,10 @@
 		```
 		r = reversed(seq)
 		```
+		
+- Mutable Sequence
+	- Applicable on `list`
+- Mutable Set
+	- Applicable on `set`
+- Mutable Mapping
+	- Applicable on `dict`
