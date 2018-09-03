@@ -12,6 +12,10 @@
 - Dictionaries don't support the sequence operation of the sequence data types like strings, tuples and lists.
 - Dictionaries belong to the built-in mapping type.
 
+> NOTE:
+>  - Keys must be immutable
+>  - Values may be mutable
+
 - Creating an empty dictionary
 
 	```
