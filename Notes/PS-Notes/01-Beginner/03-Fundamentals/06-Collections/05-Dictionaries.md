@@ -15,6 +15,7 @@
 > NOTE:
 >  - Keys must be immutable
 >  - Values may be mutable
+>  - The dictionary itself is mutable
 
 - Creating an empty dictionary
 
