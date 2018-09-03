@@ -10,7 +10,7 @@
 	
 - Iterable
 	- Applicable on `str, list, range, tuple, bytes, set, dict`
-	- Can produce an iterator with iter()
+	- Can produce an iterator with `iter()`
 	
 	```
 	for item in iterable:
