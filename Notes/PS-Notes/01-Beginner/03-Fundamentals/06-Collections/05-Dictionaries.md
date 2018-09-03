@@ -54,6 +54,11 @@
 	
 	In [12]: d
 	Out[12]: {'goldenrod': 14329120, 'indigo': 4915330, 'seashell': 16774638}
+	
+	In [3]: e = d.copy()
+	
+	In [4]: e
+	Out[4]: {'goldenrod': 14329120, 'indigo': 4915330, 'seashell': 16774638}
 	```
 	
 - Updating dictionary using another dictionary
