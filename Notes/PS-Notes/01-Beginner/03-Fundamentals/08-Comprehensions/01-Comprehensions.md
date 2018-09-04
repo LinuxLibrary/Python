@@ -5,11 +5,11 @@
 
 # List Comprehensions
 
-	- A list comprehension consists of the following parts:
-	- An Input Sequence.
-	- A Variable representing members of the input sequence.
-	- An Optional Predicate expression.
-	- An Output Expression producing elements of the output list from members of the Input Sequence that satisfy the predicate.
+- A list comprehension consists of the following parts:
+- An Input Sequence.
+- A Variable representing members of the input sequence.
+- An Optional Predicate expression.
+- An Output Expression producing elements of the output list from members of the Input Sequence that satisfy the predicate.
 
 	```
 	In [1]: words = "We are trying to learn Python list comprehensioning".split()
@@ -36,12 +36,12 @@
 	
 # Set Comprehensions
 
-	- Set comprehensions allow sets to be constructed using the same principles as list comprehensions
-	- The only difference is that resulting sequence is a set.
-	- Say we have a list of names.
-	- The list can contain names which only differ in the case used to represent them, duplicates and names consisting of only one character.
-	- We are only interested in names longer then one character and wish to represent all names in the same format:
-	- The first letter should be capitalised, all other characters should be lower case.
+- Set comprehensions allow sets to be constructed using the same principles as list comprehensions
+- The only difference is that resulting sequence is a set.
+- Say we have a list of names.
+- The list can contain names which only differ in the case used to represent them, duplicates and names consisting of only one character.
+- We are only interested in names longer then one character and wish to represent all names in the same format:
+- The first letter should be capitalised, all other characters should be lower case.
 	
 	```
 	In [1]: from math import factorial
@@ -59,10 +59,10 @@
 	
 # Dictionary Comprehensions
 
-	- Say we have a dictionary the keys of which are characters and the values of which map to the number of times that character appears in some text.
-	- The dictionary currently distinguishes between upper and lower case characters.
-	- Here we have a dictionary which contains Country to Capital mapping.
-	- Let us try to reverse that to Capital to Country
+- Say we have a dictionary the keys of which are characters and the values of which map to the number of times that character appears in some text.
+- The dictionary currently distinguishes between upper and lower case characters.
+- Here we have a dictionary which contains Country to Capital mapping.
+- Let us try to reverse that to Capital to Country
 	
 	```
 	In [1]: from pprint import pprint as pp
@@ -82,7 +82,7 @@
 	'Stockholm': 'Sweden'}
 	```
 	
-	- The below example will demonstrate how can we get the first word based on alphabetical order
+- The below example will demonstrate how can we get the first word based on alphabetical order
 	
 	```
 	In [5]: words = ["hi", "hello", "foxtrot", "hotel"]
