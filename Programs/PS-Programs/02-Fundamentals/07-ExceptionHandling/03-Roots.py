@@ -26,7 +26,7 @@ def main():
 		print(sqrt(-1))
 		print("This is never printed")
 	except (ValueError, ZeroDivisionError) as e:
-		print(e, file=sys.stderr)
+		print("Unable to compute square root!\nComputation error:", e, file=sys.stderr)
 	print("Program execution continues normally here")
 		
 if __name__ == "__main__":
