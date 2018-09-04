@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+'''Print prime numbers between 0 and 101'''
+
 def is_prime(x):
 	if x < 2:
 		return False
