@@ -26,7 +26,13 @@ class Flight:
 		
 	def aircraft_model(self):
 		return self._aircraft.model()
+	
+	def aircraft_registration(self):
+		return self._aircraft.registration()
 		
+	def aircraft_seating_plan(self):
+		return self._aircraft.seating_plan()	
+
 		
 class Aircraft:
 
