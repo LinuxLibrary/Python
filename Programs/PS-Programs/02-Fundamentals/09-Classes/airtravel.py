@@ -30,7 +30,7 @@ class Flight:
 	def aircraft_model(self):
 		return self._aircraft.model()
 
-	def allocate_seat(self, passenger):
+	def allocate_seat(self, seat, passenger):
 		"""Allocate a seat to a passanger.
 	
 		Args:
