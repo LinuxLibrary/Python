@@ -83,16 +83,3 @@ class Aircraft:
 		
 	def seating_plan(self):
 		return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
-		
-
-'''
-Sample execution:
-from 01-AirTravel import *
-
-a = Aircraft("G-EUPT", "Airbus A139", num_rows=22, num_seats_per_row=6)
-a.registration()
-a.model()
-a.seating_plan()
-
-f = Flight("BA758", Aircraft("G-EUPT", "Airbus A139", num_rows=22, num_seats_per_row=6))
-'''
