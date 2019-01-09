@@ -38,7 +38,7 @@
 		- Binds the user input to a variable
 		
 		```
-		>>> text = 	input("Type anything... ")
+		>>> text = input("Type anything... ")
 		>>> print(5*text)
 		```
 		
