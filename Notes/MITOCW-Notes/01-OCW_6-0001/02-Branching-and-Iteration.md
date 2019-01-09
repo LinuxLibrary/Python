@@ -191,7 +191,8 @@
 		```
 		
 - **COMPARING `for` and `while` LOOPS**
-	| for loops | while loops |
+	
+	| `for` loops | `while` loops |
 	|-------------|---------------|
 	| 1. Know number of iterations | 1. Unbounded number of iterations |
 	| 2. Can end early via break | 2. Can end early via break |
