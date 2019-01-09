@@ -68,6 +68,7 @@
 		- `a and b` --> True `if both are` True
 		- `a or b` --> True `if either of both are` True
 		
+		---
 		
 		| A | B | A and B | A or B |
 		|---|---|---------|--------|
