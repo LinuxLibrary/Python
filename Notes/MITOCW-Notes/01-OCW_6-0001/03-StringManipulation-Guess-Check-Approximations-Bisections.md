@@ -120,3 +120,55 @@
 		- Keep guessing if |\guess^3-cube| >= epsilon for some small epsilon
 		- Decreasing increment size --> slower program
 		- Increasing esilon --> less accurate answer
+		- Sample Solution
+		
+		```
+		cube = 27
+		epsilon = 0.01
+		guess = 0.0
+		increment = 0.0001
+		num_guesses = 0
+		while abs(guess**3 - cube) >= epsilon and guess <= cube:
+			guess += increment
+			num_guesses += 1
+		print('num_guesses =', num_guesses)
+		if abs(guess**3 - cube) >= epsilon:
+			print('Failed on cube root of', cube)
+		else:
+			print(guess, 'is close to the cube root of', cube)
+		```
+		
+	- **BISECTIONAL SEARCH**
+		- Half interval each iteration
+		- New guess if half way in between
+		- Cube root example
+		
+		```
+		cube = 27
+		epsilon = 0.01
+		num_guesses = 0
+		low = 0
+		high = cube
+		guess = (high + low)/2.0
+		while abs(guess**3 - cube) >= epsilon:
+			if guess**3 < cube:
+				low = guess
+			else:
+				high = guess
+			guess = (high + low)/2.0
+			num_guesses += 1
+		print('num_guesses = ', num_guesses)
+		print(guess, 'is close to the cube root of', cube)
+		```
+		
+	- **BISECTION SEARCH CONVERGENCE**
+		- Search space
+			- First guess: N/2
+			- Second guess: N/4
+			- k th guess: N/2^k
+		- Guess converges on the order of log2N steps
+		- Bisectional search works when value of function varies monotonically with input
+		- Code as shown works only for positive cubes > 1 - Why?
+		- Challenges
+			- Modify to work with negative cubes!
+			- Modify to work with x < 1!
