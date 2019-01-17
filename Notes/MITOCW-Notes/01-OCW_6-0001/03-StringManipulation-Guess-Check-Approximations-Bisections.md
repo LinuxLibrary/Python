@@ -117,6 +117,6 @@
 	- **APPROXIMATE SOLUTIONS**
 		- Good enough solution
 		- Start with a guess and increment by some small value
-		- Keep guessing if `|guess^{3}-cube| >= epsilon` for some small epsilon
+		- Keep guessing if |guess^{3}-cube| >= epsilon for some small epsilon
 		- Decreasing increment size --> slower program
 		- Increasing esilon --> less accurate answer
