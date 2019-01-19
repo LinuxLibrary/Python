@@ -79,7 +79,7 @@
 - **return vs. print**
 
 	| Return | Print |
-	|--------|-------|
+	|:--------:|:-------:|
 	| Return only has meaning insidea function | Print can be used outsidefunctions |
 	| Only one return executed inside a function | Can execute many print statements inside a function |
 	| Code inside function but after return statement not executed | Code inside function can be executed after a print statement |
