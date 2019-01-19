@@ -77,6 +77,7 @@
 	- [Functions](https://github.com/LinuxLibrary/Python/blob/master/Programs/MITOCW/01-OCW_6-0001/lec4_functions.py)
 	
 - **return vs. print**
+
 	| Return | Print |
 	|--------|-------|
 	| Return only has meaning insidea function | Print can be used outsidefunctions |
