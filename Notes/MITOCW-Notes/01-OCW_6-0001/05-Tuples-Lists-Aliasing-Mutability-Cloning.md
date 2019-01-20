@@ -96,8 +96,10 @@
 	- compute the sum of elements of a list
 	- common pattern, iterate over list elements
 
+	 | 
+	-|-
 	total = 0 | total = 0
-	for iin range(len(L)): | for i in L:
+	for i in range(len(L)): | for i in L:
 		total += L[i] | 	total += i
 	print total | print total
 
