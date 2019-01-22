@@ -1,5 +1,7 @@
 # Tuples, Lists, Aliasing, Mutability, Cloning
 
+* [Tuples and Lists Code](https://github.com/LinuxLibrary/Python/blob/master/Programs/MITOCW/01-OCW_6-0001/lec5_tuples_lists.py)
+
 - **Compound Data Types**
 	- The 2 compound data types are
 		- Tuples
