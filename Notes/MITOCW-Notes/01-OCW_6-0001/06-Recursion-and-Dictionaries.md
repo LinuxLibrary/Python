@@ -291,3 +291,57 @@
 			| Key 3 | Val 3 |
 			| Key 4 | Val 4 |
 			| ... | ... |
+			
+	- **A PYTHON DICTIONARY**
+		- Store pairs of data 
+			- Key
+			- Value
+			
+		```
+		my_dict = {}
+		grades = {'Ana':'B', 'John':'A+', 'Denise':'A', 'Katy':'A'}
+		```
+		
+	- **DICTIONARY LOOKUP**
+		- Similar to indexing into a list
+		- Looks up the key
+		- Returns the value associated with the key 'A'
+		- If key isn’t found, get an error
+		
+		```
+		grades = {'Ana':'B', 'John':'A+', 'Denise':'A', 'Katy':'A'}
+		grades['John'] à evaluates to 'A+'
+		grades['Sylvan'] à gives a KeyError
+		```
+		
+	- **DICTIONARY OPERATIONS**
+		- `grades = {'Ana':'B', 'John':'A+', 'Denise':'A', 'Katy':'A'}`
+		- Add an entry 
+			- `grades['Sylvan'] = 'A'`
+		- Test if key in dictionary
+			- 'John' in gradesàreturns True
+			- 'Daniel' in gradesàreturns False
+		- Delete entry 
+			- `del(grades['Ana'])`
+		- Get an iterable that acts like a tuple of all keys
+			- `grades.keys() -> returns ['Denise','Katy','John','Ana']`
+			
+			> NOTE: No guaranteed order
+			
+		- Get an iterable that acts like a tuple of all values
+			- `grades.values() -> returns ['A', 'A', 'A+', 'B']`
+			
+			> NOTE: No guaranteed order
+			
+	- **DICTIONARY KEYS and VALUES**
+		- Values
+			- Any type (immutable and mutable)
+			- Can be duplicates
+			- Dictionary values can be lists, even other dictionaries!
+		- Keys
+			- Must be unique
+			- Immutable type (int, float, string, tuple,bool)
+				- Actually need an object that is hashable, but think of as immutable as all immutable types are hashable
+			- Careful with float type as a key
+		- No order to keys or values!
+			- `d = {4:{1:0}, (1,3):"twelve", 'const':[3.14,2.7,8.44]}`
