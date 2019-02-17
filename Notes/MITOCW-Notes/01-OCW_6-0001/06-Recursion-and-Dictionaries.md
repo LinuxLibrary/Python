@@ -2,7 +2,7 @@
 
 - **RECURSION**
 	- Recursion is the process of repeating items in a self-similar way.
-	- **Algorithmically:** a way to design soluSons to problems by divide-and-conquer or decrease-and-conquer
+	- **Algorithmically:** a way to design solutions to problems by divide-and-conquer or decrease-and-conquer
 		- Reduce a problem to simpler versions of the same problem
 	- **Semantically:** a programming technique where a function calls itself
 		- In programming, goal is to NOT have infinite recursion
@@ -10,13 +10,13 @@
 			- Must solve the same problem on some other input with the goal of simplifying the larger problem input
 	
 	- **ITERATIVE ALGORITHMS SO FAR**
-		- Looping constructs (while and for loops) lead to itera0ve algorithms 
-		- Can capture computaSon in a set of state variables that update on each iteraSon through loop
+		- Looping constructs (while and for loops) lead to iterative algorithms 
+		- Can capture computation in a set of state variables that update on each iteration through loop
 		
 	- **MULTIPLICATION – ITERATIVE SOLUTION**
 		- “multiply a * b” is equivalent to “add a to itself b times”
 		- Capture state by 
-			- An itera0on number (i) starts at b
+			- An iteration number (i) starts at b
 				`i <- i-1 and stop when 0`
 			- A current value of computation (result)
 				`result <- result + a`
@@ -34,7 +34,7 @@
 		- Recursive step
 			- Think how to reduce problem to a simpler/smaller version of same problem
 		- Base case 
-			- Keep reducing problem unSl reach a simple case that can be solved directly
+			- Keep reducing problem until reach a simple case that can be solved directly
 			- When b = 1, a*b = a
 			
 	- **FACTORIAL**
@@ -63,7 +63,7 @@
 				return n*factorial(n-1)
 		```
 		
-		- Each recursive call to a funcSon creates its own scope/environment
+		- Each recursive call to a function creates its own scope/environment
 		- Bindings of variables in a scope are not changed by recursive call
 		- Flow of control passes back to previous scope once funcSon call returns value
 		
@@ -345,3 +345,14 @@
 			- Careful with float type as a key
 		- No order to keys or values!
 			- `d = {4:{1:0}, (1,3):"twelve", 'const':[3.14,2.7,8.44]}`
+			
+	- **LIST vs DICTIONARY**
+	
+		|:list:|:dict:|
+		|------|------|
+		| - Ordered sequence of elements | - Matches "Keys" to "Values" |
+		| - Lookup elements by an integer index | - look up one item by another item |
+		| - Indices have an order | - No order is guaranteed |
+		| - Index is an integer | - Key can be any immutable type |
+		
+	- 
