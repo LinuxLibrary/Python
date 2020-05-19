@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hotel Feedback</title>
+</head>
+<body>
+	<h1>Hotel Feedback Form</h1>
+	<form method="get">
+		<h3>Are you from inside India? Or Outside of India!</h3>
+		<label for="inindia">Inside</label>
+		<input id="inindia" type="radio" name="loc" value="inside">
+		<label for="outindia">Outside</label>
+		<input id="outindia" type="radio" name="loc" value="outside">
+
+		<h2>How was your service?</h2>
+		<select name="stars">
+			<option value="Great">3</option>
+			<option value="Okay">2</option>
+			<option value="Bad">1</option>
+		</select>
+
+		<h2>Any other feedback?</h2>
+		<textarea name="mytext" rows="8" cols="80"></textarea>
+		<input type="submit" name="SUBMIT">
+	</form>
+</body>
+</html>
