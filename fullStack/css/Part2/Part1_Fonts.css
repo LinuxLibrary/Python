@@ -1,0 +1,41 @@
+h1 {
+	font-family: "Tahoma";
+}
+
+/*p {
+	font-family: monospace;
+}*/
+
+/*p {
+	font-family: 'Barrio', cursive;
+}*/
+
+/*p {
+	font-family: 'GreatVibesReguar';
+	font-weight: normal;
+	font-style: normal;
+
+}*/
+
+p {
+	font-family: 'AlexBrushRegular';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-size: 20px;
+}
+
+#two {
+	font-size: 1.0em;
+}
+
+p {
+	font-style: italic;
+	font-weight: bold;
+}
+
+h1 {
+	text-align: center;
+}

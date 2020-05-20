@@ -1,0 +1,44 @@
+body{
+	background-color: #012625;
+	color: white;
+	font-family: "Tahoma";
+	text-align: center;
+	border: 100px solid #14b3ae;
+	border-top: 0px;
+	margin: 0px;
+}
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+p{
+	text-align: justify;
+	font-size: 20px;
+	padding-top: 5%;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.signup{
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.inp{
+	width: 300px;
+	height: 30px;
+}
+
+#submit{
+	font-size: 1.3em;
+	height: 100px;
+	width: 200px;
+	margin: 20px;
+	background-color: orange;
+	border-radius: 30px;
+}

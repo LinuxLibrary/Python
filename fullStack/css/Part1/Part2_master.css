@@ -1,0 +1,20 @@
+body{
+	background: url(https://avatars2.githubusercontent.com/u/9534199?s=400&u=3fce08889f156dc56ebaf8c1c409cecb17881ec1&v=4);
+	background-repeat: no-repeat;
+}
+
+div{
+	background: blue;
+	border-width: 2px;
+	border-style: double;
+	border-color: orange;
+}
+
+p{
+	color: yellow;
+}
+
+span{
+	background: red;
+	color: black;
+}

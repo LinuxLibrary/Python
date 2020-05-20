@@ -1,0 +1,36 @@
+h1{
+   font-family: 'Sans-Serif';
+   font-size: 30px;
+   text-align: center;
+}
+
+td{
+	width: 150px;
+	height: 300px;
+	border: 6px solid white;
+}
+
+.art{
+	margin: auto;
+}
+#td1{
+	background-color: #ed544c;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#td2{
+	background-color: #f0d541;
+}
+
+#td3{
+	background-color: #71f241;
+}
+
+#td4{
+	background-color: #3ce898;
+}
+
+#td5{
+	background-color: #39d4e6;
+}
